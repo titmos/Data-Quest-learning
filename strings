@@ -11,4 +11,15 @@ birth_year = 1881
 template = "{artist}'s birth year is {birth_year}"
 print(template.format(artist = "Pablo Picasso", birth_year = 1881))
 
-
+#Create a template string that will insert the country name and population
+pop_millions = [
+    ["China", 1379.302771],
+    ["India", 1281.935991],
+    ["USA",  326.625791],
+    ["Indonesia",  260.580739],
+    ["Brazil",  207.353391],
+]
+for item in pop_millions:
+    name = item[0]
+    population = item[1]
+    print("The population of {} is {:,.2f} million".format(name, population))
