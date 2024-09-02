@@ -4,3 +4,11 @@ def artist_summary(name):
     num_artworks =artist_freq[name]
     print("There are {y} artworks by {z} in the dataset".format(z = name, y = num_artworks))
 artist_summary("Henri Matisse")
+
+#Inserting Variables into Strings
+artist = "Pablo Picasso"
+birth_year = 1881
+template = "{artist}'s birth year is {birth_year}"
+print(template.format(artist = "Pablo Picasso", birth_year = 1881))
+
+
