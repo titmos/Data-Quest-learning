@@ -1,0 +1,6 @@
+#string formatting in python
+
+def artist_summary(name):
+    num_artworks =artist_freq[name]
+    print("There are {y} artworks by {z} in the dataset".format(z = name, y = num_artworks))
+artist_summary("Henri Matisse")
