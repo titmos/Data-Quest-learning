@@ -23,3 +23,18 @@ for item in pop_millions:
     name = item[0]
     population = item[1]
     print("The population of {} is {:,.2f} million".format(name, population))
+
+#Create a frequency table for the values in the Gender (row index 5) column.
+#Loop over each key-value pair in the dictionary. Display a line of output in the format shown above summarizing each pair.
+
+gender_freq = {}
+for item in moma:
+    gender = item[5]
+    if gender in gender_freq:
+        gender_freq[gender] += 1
+    else:
+        gender_freq[gender] = 1
+#print(gender_freq)
+for gender, frq in gender_freq.items():
+    output = "There are {n:,} artworks by {g} artists".format(n = int(frq), g = gender)
+    print(output)
