@@ -32,3 +32,19 @@ class MyList:
 
 my_list = MyList([1, 2, 3, 4, 5])
 print(my_list.data)
+
+
+#create a append method (similar to list append in PY)
+class MyList:
+
+    def __init__(self, initial_data):
+        self.data = initial_data
+        
+    # Add method here
+    def append(self, new_item):
+        self.data = self.data + [new_item]
+my_list = MyList([1, 2, 3, 4, 5])
+#test
+print(my_list.data)
+my_list.append(6)
+print(my_list.data)
