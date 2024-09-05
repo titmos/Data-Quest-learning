@@ -1,3 +1,10 @@
+#A "phantom" argument passes methods when we call them.
+#The "phantom" argument is actually the object itself.
+#We need to include that in our method definition.
+#The convention is to call the "phantom" argument self
+
+
+
 class MyClass:
     
     def first_method(self):
