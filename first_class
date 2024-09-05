@@ -12,3 +12,15 @@ class MyClass:
 my_instance = MyClass()
 result = my_instance.first_method()
 print(result, "\n", my_instance)
+
+
+#Another try
+class MyClass:    
+    def first_method(self):
+        return "This is my first method"
+    
+    # Add method here
+    def return_list(self, input_list):
+        return input_list
+my_instance = MyClass()
+result = my_instance.return_list([1, 2, 3])
