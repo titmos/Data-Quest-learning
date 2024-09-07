@@ -6,3 +6,18 @@ for item in potus:
     appt_start_date = item[2]
     appt_start_date = dt.datetime.strptime(appt_start_date, date_format)
     item[2] = appt_start_date
+
+
+
+# The `potus` list of lists is available from
+# the earlier screen where we created it
+#The format of the app_start_date column is {month}/{day}/{two digit year} {hour 24hr time}:{minute}.
+import datetime as dt
+date_format = "%m/%d/%y %H:%M"
+for item in potus:
+    appt_start_date = item[2]
+    appt_start_date = dt.datetime.strptime(appt_start_date, date_format)
+    #to prevent the datetime.datetime appearing in the list
+    appt_start_date = appt_start_date.isoformat()
+    item[2] = appt_start_date
+print(potus[:10])
