@@ -21,3 +21,20 @@ for item in potus:
     appt_start_date = appt_start_date.isoformat()
     item[2] = appt_start_date
 print(potus[:10])
+
+
+
+
+#Let's use the datetime.strftime() method to create a formatted frequency table and analyze the appointment dates in our data set. We'll do the following:
+#1.Iterate over each of the datetime objects we created on the previous screen
+#2.Create a string containing the month and year from each datetime object
+#3.Create a frequency table for the month/year of the appointments
+visitors_per_month = {}
+for item in potus:
+    appt_start_date = item[2]
+    appt_start_date = appt_start_date.strftime("%B, %Y")
+    if appt_start_date not in visitors_per_month:
+        visitors_per_month[appt_start_date] = 1
+    else:
+        visitors_per_month[appt_start_date] += 1
+print(visitors_per_month)
