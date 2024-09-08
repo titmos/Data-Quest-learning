@@ -63,3 +63,24 @@ answer_1 = dt_2 - dt_1
 answer_2 = dt_3 + dt.timedelta(days = 56)
 answer_3 = dt_4 - dt.timedelta(seconds = 3600)
 print(answer_1, '\n', answer_2, '\n', answer_3)
+
+
+"""
+We have provided code that converts the appt_end_date to datetime objects.
+Calculate the minimum key in appt_lengths, and assign the result to min_length.
+Calculate the maximum key in appt_lengths, and assign the result to max_length."""
+appt_lengths = {}
+for row in potus:
+    start_date = row[2]
+    end_date = row[3]
+    end_date = dt.datetime.strptime(end_date, "%m/%d/%y %H:%M")
+    row[2] = start_date
+    row[3] = end_date
+    length = end_date - start_date
+    if length not in appt_lengths:
+        appt_lengths[length] = 1
+    else:
+        appt_lengths[length] += 1
+#print(appt_lengths)
+min_length = min(appt_lengths)
+max_length = max(appt_lengths)
