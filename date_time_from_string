@@ -49,3 +49,17 @@ for item in potus:
     appt_times.append(appt_t)
 print(appt_times)
 """Because we have already converted the app_start_date column to datetime objects, it's easy for us to convert them to time objects. Let's loop over our potus list of lists and create a list of appointment times that we can analyze on the following screen."""
+
+
+
+'''calculate the time between dt_2 and dt_1, and assign the result to answer_1.
+Add 56 days to dt_3, and assign the result to answer_2.
+Subtract 3600 seconds from dt_4, and assign the result to answer_3.'''
+dt_1 = dt.datetime(1981, 1, 31)
+dt_2 = dt.datetime(1984, 6, 28)
+dt_3 = dt.datetime(2016, 5, 24)
+dt_4 = dt.datetime(2001, 1, 1, 8, 24, 13)
+answer_1 = dt_2 - dt_1
+answer_2 = dt_3 + dt.timedelta(days = 56)
+answer_3 = dt_4 - dt.timedelta(seconds = 3600)
+print(answer_1, '\n', answer_2, '\n', answer_3)
