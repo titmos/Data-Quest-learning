@@ -38,3 +38,14 @@ for item in potus:
     else:
         visitors_per_month[appt_start_date] += 1
 print(visitors_per_month)
+
+
+
+import datetime as dt
+appt_times = []
+for item in potus:
+    appt_dt = item[2]
+    appt_t = appt_dt.time()
+    appt_times.append(appt_t)
+print(appt_times)
+"""Because we have already converted the app_start_date column to datetime objects, it's easy for us to convert them to time objects. Let's loop over our potus list of lists and create a list of appointment times that we can analyze on the following screen."""
