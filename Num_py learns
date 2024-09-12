@@ -14,3 +14,10 @@ fare_amount = taxi[:, 9]
 fees_amount = taxi[:, 10]
 fare_and_fees = fare_amount + fees_amount
 print(fare_and_fees)
+
+# Create the variables trip_distance_miles, trip_length_seconds, and trip_length_hours as shown above in the Learn section.
+trip_distance_miles = taxi[:, 7]
+trip_length_seconds = taxi[:, 8]
+trip_length_hours = trip_length_seconds / 3600
+trip_mph = trip_distance_miles / trip_length_hours
+print(trip_mph[:10])
