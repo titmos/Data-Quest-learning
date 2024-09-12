@@ -21,3 +21,13 @@ trip_length_seconds = taxi[:, 8]
 trip_length_hours = trip_length_seconds / 3600
 trip_mph = trip_distance_miles / trip_length_hours
 print(trip_mph[:10])
+
+
+# extract the first 5 rows only
+taxi_first_five = taxi[:5]
+print(taxi_first_five)
+# select columns: fare_amount, fees_amount, tolls_amount, and tip_amount
+fare_components = taxi_first_five[:, 9:13]
+fare_sums = fare_components.sum(axis = 1)
+fare_totals = taxi_first_five[:, 13]
+print('fare total : ', fare_totals, '\n', 'fare sums', fare_sums)
