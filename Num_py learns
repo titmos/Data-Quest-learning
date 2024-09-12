@@ -5,3 +5,12 @@ columns_1_4_7 = taxi[:,[1, 4, 7]]
 row_99_columns_5_to_8 = taxi[99, 5: 9]
 #Select the rows at indices 100 to 200 inclusive for the column at index 14. Assign the result to rows_100_to_200_column_14.
 rows_100_to_200_column_14 = taxi[100:201, 14]
+
+
+#Vector Operations
+#From the provided taxi ndarray:
+#Add the fare_amount and fees_amount arrays element-wise. Assign the result to a new variable called fare_and_fees
+fare_amount = taxi[:, 9]
+fees_amount = taxi[:, 10]
+fare_and_fees = fare_amount + fees_amount
+print(fare_and_fees)
