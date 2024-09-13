@@ -31,3 +31,15 @@ fare_components = taxi_first_five[:, 9:13]
 fare_sums = fare_components.sum(axis = 1)
 fare_totals = taxi_first_five[:, 13]
 print('fare total : ', fare_totals, '\n', 'fare sums', fare_sums)
+
+
+#Boolean Arrays : Use vectorized Boolean operations to do the following
+a = np.array([1, 2, 3, 4, 5])
+b = np.array(["blue", "blue", "red", "blue"])
+c = np.array([80.0, 103.4, 96.9, 200.3])
+#Evaluate whether the elements in array a are less than 3. Assign the result to a_bool
+a_bool = a < 3
+#Evaluate whether the elements in array b are equal to "blue". Assign the result to b_bool
+b_bool = b == 'blue'
+#Evaluate whether the elements in array c are greater than 100. Assign the result to c_bool
+c_bool = c > 100
