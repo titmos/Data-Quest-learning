@@ -15,6 +15,19 @@ fees_amount = taxi[:, 10]
 fare_and_fees = fare_amount + fees_amount
 print(fare_and_fees)
 
+
+#Boolean Indexing with 2D Ndarrays
+arr = np.array([[1, 2, 3],
+                [4, 5, 6],
+                [7, 8, 9],
+                [10, 11, 12]
+                ])
+bool_1 = [True, False, True, True ]
+bool_2 = [True, False, True]
+print(arr[bool_1]) # row filtering
+print(arr[:,bool_2]) # column filtering
+
+
 # Create the variables trip_distance_miles, trip_length_seconds, and trip_length_hours as shown above in the Learn section.
 trip_distance_miles = taxi[:, 7]
 trip_length_seconds = taxi[:, 8]
