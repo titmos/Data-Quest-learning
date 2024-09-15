@@ -35,6 +35,12 @@ print(c[:, 1])
 print(c[:, 1] > 2)
 ''' The Boolean operation c[:, 1] > 2 selects the the second column of c for comparison and creates a 1D Boolean array based on the values of that column being > 2 or not. We then use the resulting Boolean array as the row index for assignment and we use 1 as the column index for assignment. This ensures we select the proper rows and columns before we assign the value of 99 to them (c[c[:, 1] > 2, 1] = 99). This way, only the second column will (possibly) have its values changed, and all other columns will remain untouched.'''
 
+#the explanation of the concept
+row_idx_for_assignment = array[:, col_idx_for_comparison] == value_for_comparison
+array[row_idx_for_assignment, col_idx_for_assignment] = new_value
+
+array[array[:, col_idx_for_comparison] == value_for_comparison, col_idx_for_assignment] = new_value
+
 
 
 # Create the variables trip_distance_miles, trip_length_seconds, and trip_length_hours as shown above in the Learn section.
