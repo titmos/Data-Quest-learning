@@ -41,7 +41,25 @@ array[row_idx_for_assignment, col_idx_for_assignment] = new_value
 
 array[array[:, col_idx_for_comparison] == value_for_comparison, col_idx_for_assignment] = new_value
 
+#Example case
+#the extended way
+x = taxi[:, 5]
+x_bool = x == 5
+x_need = taxi[x_bool, 5]
+x_count = x_need.shape[0]
 
+
+#the streamlined way of boolean assignment
+jfk = taxi[taxi[:, 5] == 2, 5]
+jfk_count = jfk.shape[0]
+
+laguardia = taxi[taxi[:, 5] == 3, 5]
+laguardia_count= laguardia.shape[0]
+
+newark = taxi[taxi[:, 5] == 5, 5]
+newark_count = newark.shape[0]
+
+busiest_airport = 'laguardia'
 
 # Create the variables trip_distance_miles, trip_length_seconds, and trip_length_hours as shown above in the Learn section.
 trip_distance_miles = taxi[:, 7]
