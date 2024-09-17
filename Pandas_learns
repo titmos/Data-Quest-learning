@@ -9,3 +9,5 @@ print(f500_shape)
 
 print(f500.head(3)) # would display the header and first 3 rows in the dataset
 print(f500.tail(3)) # would display the last 3 rows in the dataset
+f500_top_6 = f500.head(6)
+f500_bottom_8 = f500.tail(8)
