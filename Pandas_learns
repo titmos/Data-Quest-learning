@@ -1,2 +1,11 @@
+import pandas as pd
+f500 = pd.read_csv('f500.csv', index_col=0) #using the pandas CSV reader
+f500.index.name = None
+
+f500_type = type(f500) 
+f500_shape = f500.shape #displays the shape of the dataset in row by column
+print(f500_type)
+print(f500_shape)
+
 print(f500.head(3)) # would display the header and first 3 rows in the dataset
 print(f500.tail(3)) # would display the last 3 rows in the dataset
