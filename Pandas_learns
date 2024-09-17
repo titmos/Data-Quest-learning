@@ -15,3 +15,14 @@ f500_bottom_8 = f500.tail(8)
 
 #overview of all the dtypes used in our DataFrame, along with its shape and other information, we can use the DataFrame.info() method
 f500.info()
+
+
+#There are two types of labels in pandas: Row Labels and Column Labels.
+# df.loc[row_label, column_label]
+# Select a Single Column
+# dataFra.loc[:, "col_name"]
+# we can also use f500_selection["rank"]
+industries = f500["industry"]
+industries_type = type(industries)
+print(industries, '\n')
+print(industries_type)
