@@ -1,1 +1,2 @@
-
+print(f500.head(3)) # would display the header and first 3 rows in the dataset
+print(f500.tail(3)) # would display the last 3 rows in the dataset
