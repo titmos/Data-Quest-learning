@@ -11,3 +11,7 @@ print(f500.head(3)) # would display the header and first 3 rows in the dataset
 print(f500.tail(3)) # would display the last 3 rows in the dataset
 f500_top_6 = f500.head(6)
 f500_bottom_8 = f500.tail(8)
+
+
+#overview of all the dtypes used in our DataFrame, along with its shape and other information, we can use the DataFrame.info() method
+f500.info()
