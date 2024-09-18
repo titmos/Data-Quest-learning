@@ -26,3 +26,13 @@ industries = f500["industry"]
 industries_type = type(industries)
 print(industries, '\n')
 print(industries_type)
+
+
+#Selecting Columns from a DataFrame by Label 
+#this is for a single selection
+countries = f500["country"]
+#this works for multiple columns selection
+revenues_years = f500[["revenues", "years_on_global_500_list"]]
+
+#printing slices in a range, We will have to do the full specification using .loc
+ceo_to_sector = f500.loc[:,"ceo" : "sector"]
