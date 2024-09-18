@@ -70,3 +70,11 @@ print(rank_desc)
 prev_rank = f500["previous_rank"]
 prev_rank_desc = prev_rank.describe()
 print(prev_rank_desc)
+
+#Method Chaining
+#a way to combine multiple methods together in a single line.
+prev_rank = f500["previous_rank"]
+zero_previous_rank = prev_rank.value_counts().loc[0]
+
+#using method chaining 
+zero_using_chaining = f500["previous_rank"].value_counts().loc[0]
