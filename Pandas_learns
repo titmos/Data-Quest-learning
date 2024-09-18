@@ -60,3 +60,13 @@ sectors_industries = f500[["sector", "industry"]]
 print(type(sectors_industries))
 si_value_counts = sectors_industries.value_counts()
 print(si_value_counts)
+
+#Series.describe() method tells us how many non-null values are contained in the series
+#along with the mean, minimum, maximum
+
+rank = f500["rank"]
+rank_desc = rank.describe()
+print(rank_desc)
+prev_rank = f500["previous_rank"]
+prev_rank_desc = prev_rank.describe()
+print(prev_rank_desc)
