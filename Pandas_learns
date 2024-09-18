@@ -36,3 +36,27 @@ revenues_years = f500[["revenues", "years_on_global_500_list"]]
 
 #printing slices in a range, We will have to do the full specification using .loc
 ceo_to_sector = f500.loc[:,"ceo" : "sector"]
+
+
+
+"""Select the country column from f500 and save it to the variable countries.
+Use the Series.value_counts() method to get the value counts for each unique non-null value in countries and save the results in the variable country_counts.
+Print the variable country_counts to determine which country has the most companies on the Fortune 500 list and save that country's name as a string in the variable top_country."""
+
+#Sample application of  the value_counts method on series data
+countries = f500["country"]
+country_counts = countries.value_counts()
+print(country_counts)
+top_country = 'USA'
+
+hq_locations =f500["hq_location"]
+hql_counts = hq_locations.value_counts()
+print(hql_counts)
+top_hq_city ='Beijing, China'
+
+#Sample application of  the value_counts method on dataFrames
+
+sectors_industries = f500[["sector", "industry"]]
+print(type(sectors_industries))
+si_value_counts = sectors_industries.value_counts()
+print(si_value_counts)
