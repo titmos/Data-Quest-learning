@@ -78,3 +78,14 @@ zero_previous_rank = prev_rank.value_counts().loc[0]
 
 #using method chaining 
 zero_using_chaining = f500["previous_rank"].value_counts().loc[0]
+
+
+#Dataframe Exploration Methods
+medians = f500[["revenues", "profits"]].median(axis=0)
+# we could also use .median(axis="index")
+print(medians)
+#f500.info()
+numeric_only = f500[["rank", "revenues", "revenue_change", "profits", "assets", "profit_change", "previous_rank", "years_on_global_500_list", "employees", "total_stockholder_equity"]]
+max_f5001 = numeric_only.max(axis = 0)
+max_f500 = f500.max(numeric_only = True)
+
