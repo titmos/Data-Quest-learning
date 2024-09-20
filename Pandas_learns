@@ -151,3 +151,15 @@ sector_bool = f500["country"] == "China"
 sector_china = f500.loc[sector_bool, "sector"].value_counts().head(3)
 
 
+
+import pandas as pd
+#The dataset has already been loaded into a pandas dataframe and assigned to the f500 variable. 
+# read the dataset into a pandas dataframe
+f500 = pd.read_csv("f500.csv", index_col=0)
+f500.index.name = None
+
+# replace 0 values in the "previous_rank" column with NaN
+f500.loc[f500["previous_rank"] == 0, "previous_rank"] = np.nan
+
+#Select the rank, revenues, and revenue_change columns in f500. Then, use the DataFrame.head() method to select the first five rows. Assign the result to f500_selection
+f500_selection = f500[["rank", "revenues", "revenue_change"]].head()
