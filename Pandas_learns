@@ -150,8 +150,4 @@ industry_usa = f500.loc[industry_usa_bool, "industry"].value_counts().head(2)
 sector_bool = f500["country"] == "China"
 sector_china = f500.loc[sector_bool, "sector"].value_counts().head(3)
 
-'''
-prev_bool = f500["previous_rank"] == 0
-#There should now be a value of np.nan where there previously was a value of 0
-f500.loc[prev_bool, "previous_rank"] = np.nan
-'''
+
