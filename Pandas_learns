@@ -96,3 +96,4 @@ max_f500 = f500.max(numeric_only = True)
 # If we wanted to get just the object columns, we need to use the include=['O'] parameter:
 describe = f500.describe(include=['O'])
 f500_desc = f500.describe()
+#Series.describe() method returns a series object, the DataFrame.describe() method returns a dataframe object
