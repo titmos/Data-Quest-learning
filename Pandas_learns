@@ -108,3 +108,11 @@ f500_desc = f500.describe()
 #top5_rank_revenue.loc["Sinopec Group", "revenues"] = 999
 #print(top5_rank_revenue)
 f500.loc["Dow Chemical", "ceo"] = "Jim Fitterling"
+
+
+# Using Boolean Indexing with pandas Objects
+#Create a boolean series, motor_bool, that compares whether the values in the industry column from the f500 dataframe are equal to "Motor Vehicles and Parts"
+
+motor_bool = f500["industry"] == "Motor Vehicles and Parts"
+#Use the motor_bool boolean series to index the country column. Assign the result to motor_countries
+motor_countries = f500.loc[motor_bool, "country"]
