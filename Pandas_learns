@@ -97,3 +97,14 @@ max_f500 = f500.max(numeric_only = True)
 describe = f500.describe(include=['O'])
 f500_desc = f500.describe()
 #Series.describe() method returns a series object, the DataFrame.describe() method returns a dataframe object
+
+
+
+# Assignment with pandas
+#top5_rank_revenue = f500[["rank", "revenues"]].head()
+#print(top5_rank_revenue)
+#top5_rank_revenue["revenues"] = 0
+#print(top5_rank_revenue)
+#top5_rank_revenue.loc["Sinopec Group", "revenues"] = 999
+#print(top5_rank_revenue)
+f500.loc["Dow Chemical", "ceo"] = "Jim Fitterling"
