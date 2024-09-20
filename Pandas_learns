@@ -89,3 +89,10 @@ numeric_only = f500[["rank", "revenues", "revenue_change", "profits", "assets", 
 max_f5001 = numeric_only.max(axis = 0)
 max_f500 = f500.max(numeric_only = True)
 
+
+
+#Dataframe Describe Method: can use to explore the dataframe more quickly
+#By default, DataFrame.describe() will return statistics for only numeric columns.
+# If we wanted to get just the object columns, we need to use the include=['O'] parameter:
+describe = f500.describe(include=['O'])
+f500_desc = f500.describe()
