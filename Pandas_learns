@@ -116,3 +116,15 @@ f500.loc["Dow Chemical", "ceo"] = "Jim Fitterling"
 motor_bool = f500["industry"] == "Motor Vehicles and Parts"
 #Use the motor_bool boolean series to index the country column. Assign the result to motor_countries
 motor_countries = f500.loc[motor_bool, "country"]
+
+
+# Using Boolean Arrays to Assign Values
+import numpy as np
+prev_rank_before = f500["previous_rank"].value_counts(dropna=False).head()
+
+#Use boolean indexing to update values in the previous_rank column of the f500 dataframe:
+prev_bool = f500["previous_rank"] == 0
+#There should now be a value of np.nan where there previously was a value of 0
+f500.loc[prev_bool, "previous_rank"] = np.nan
+#Create a new pandas series, prev_rank_after, using the same syntax that was used to create the prev_rank_before series.
+prev_rank_after = f500["previous_rank"].value_counts(dropna = False).head()
