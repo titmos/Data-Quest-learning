@@ -163,3 +163,12 @@ f500.loc[f500["previous_rank"] == 0, "previous_rank"] = np.nan
 
 #Select the rank, revenues, and revenue_change columns in f500. Then, use the DataFrame.head() method to select the first five rows. Assign the result to f500_selection
 f500_selection = f500[["rank", "revenues", "revenue_change"]].head()
+
+
+f500 = pd.read_csv("f500.csv")
+# To assign a Index name
+f500.index.name = "Company"
+#To assign a column name
+f500.columns.name = "Metric"
+f500.loc[f500["previous_rank"] == 0, "previous_rank"] = np.nan
+#print(f500[["rank", "revenues"]])
