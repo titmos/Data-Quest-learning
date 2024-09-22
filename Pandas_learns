@@ -172,3 +172,9 @@ f500.index.name = "Company"
 f500.columns.name = "Metric"
 f500.loc[f500["previous_rank"] == 0, "previous_rank"] = np.nan
 #print(f500[["rank", "revenues"]])
+
+
+# Using iloc to Select by Integer Location
+fifth_row = f500.iloc[4] #Select just the fifth row of the f500 dataframe. Assign the result to fifth_row
+company_value = f500.iloc[0, 0] #Select the value in first row of the company column
+print(company_value)
