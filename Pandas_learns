@@ -186,3 +186,13 @@ print(company_value)
 first_three_rows = f500.iloc[0:3]
 #Select the first and seventh rows while selecting the first five columns
 first_seventh_row_slice = f500.iloc[[0, 6], :5]
+
+
+
+# Using pandas Methods to Create Boolean Masks
+#Use the Series.isnull() method to create a boolean mask of all rows from f500 that have a null value for the previous_rank column
+prev_rank_null = f500["previous_rank"].isnull()
+print(prev_rank_null.value_counts())
+#Use the mask you created above to select the rows with null values in the previous_rank column while selecting the company, rank, and previous_rank columns. 
+null_prev_rank = f500[prev_rank_null][["company", "rank", "previous_rank"]]
+
