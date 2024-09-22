@@ -196,3 +196,14 @@ print(prev_rank_null.value_counts())
 #Use the mask you created above to select the rows with null values in the previous_rank column while selecting the company, rank, and previous_rank columns. 
 null_prev_rank = f500[prev_rank_null][["company", "rank", "previous_rank"]]
 
+
+
+# Working with Integer Labels
+#Given
+prev_rank_is_null = f500[f500["previous_rank"].isnull()]
+print(prev_rank_is_null)
+#Assign the first five rows of the prev_rank_is_null dataframe to the variable top5_null_prev_rank by applying the correct method: loc[] or iloc[]
+#top5_null_prev_rank = prev_rank_is_null.iloc[:5]
+#Another way 
+top5_null_prev_rank = prev_rank_is_null.loc[48 : 140]
+#note we can alos use .head() Default is first 5 rows
