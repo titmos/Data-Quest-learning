@@ -178,3 +178,11 @@ f500.loc[f500["previous_rank"] == 0, "previous_rank"] = np.nan
 fifth_row = f500.iloc[4] #Select just the fifth row of the f500 dataframe. Assign the result to fifth_row
 company_value = f500.iloc[0, 0] #Select the value in first row of the company column
 print(company_value)
+
+
+#NOTE! With loc[], the end index is included.
+#With iloc[], the end index is not included.
+#Select the first three rows of the f500 dataframe. Assign the result to first_three_rows
+first_three_rows = f500.iloc[0:3]
+#Select the first and seventh rows while selecting the first five columns
+first_seventh_row_slice = f500.iloc[[0, 6], :5]
