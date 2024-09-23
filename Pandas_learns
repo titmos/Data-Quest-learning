@@ -207,3 +207,23 @@ print(prev_rank_is_null)
 #Another way 
 top5_null_prev_rank = prev_rank_is_null.loc[48 : 140]
 #note we can alos use .head() Default is first 5 rows
+
+
+
+#Pandas Index Alignment
+
+'''previously_ranked = f500[f500["previous_rank"].notnull()]
+rank_change = previously_ranked["previous_rank"] - previously_ranked["rank"]
+print(rank_change.shape)
+print(rank_change.tail())'''
+#Above, we can see that our rank_change series has 467 rows. Since the last integer index label is 498, we know that our index labels no longer align with the integer positions.
+#Suppose we decided to add the rank_change series to the f500 dataframe as a new column. Its index labels no longer match the index labels in f500, so how could this be done?
+#Another powerful aspect of pandas is that almost every operation will align on the index labels. Let's look at an example.
+print(f500.shape)
+print(f500["profits"].notnull().value_counts())
+profited = f500[f500["profits"].notnull()]
+print(profited.shape)
+costs = profited["revenues"] - profited["profits"]
+#The pandas library will align on the index at every opportunity, no matter if our index labels are strings or integers. This makes working with data from different sources or working with data when we have removed, added, or reordered rows much easier than it would be otherwise.
+#Assign the values in the costs to a new column in the f500 dataframe, "costs"
+f500["costs"] = costs
