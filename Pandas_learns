@@ -241,3 +241,15 @@ combined = large_revenue & negative_profits
 #we use the combined boolean array to make our selection on the entire dataframe
 #Use the combined boolean mask to filter f500
 big_rev_neg_profit = f500.loc[combined]
+
+
+
+
+#Using Expression chaining and Boolean Operators
+#Notice that we placed parentheses () around each of our boolean comparisons. 
+#This is critical — our boolean operation will fail without wrapping each comparison in parentheses
+#Select all companies whose country value is either "Brazil" or "Venezuela"
+brazil_venezuela = f500[(f500["country"] == "Brazil") | (f500["country"] == "Venezuela")]
+
+#Select the first five companies in the "Technology" "sector" for which the "country" is not "USA"
+tech_outside_usa = f500[(~(f500["country"] == "USA")) & (f500["sector"] == "Technology")].head()
