@@ -279,3 +279,26 @@ print(sorted_rows)
 #Use DataFrame.iloc[] to select the first row of the sorted_rows dataframe and filter it to include just the company and profits columns.
 top_japanese_company = sorted_rows.iloc[0, [0, 4]]
 #print('\n', top_japanese_company)
+
+
+
+# Create an empty dictionary to store the results
+avg_rev_by_country = {}
+#To identify the unique countries, we can use the Series.unique() method
+#This method returns a NumPy array of unique values from any series
+#Then, we can loop over that array and perform our operation. Here's what that looks like:
+
+# Create an array of unique countries
+countries = f500["country"].unique()
+
+# Use a for loop to iterate over the unique countries
+for c in countries:
+    # Use a boolean comparison to select only rows that
+    # correspond to the country for this iteration
+    selected_rows = f500[f500["country"] == c]
+    # Calculate the mean revenue for the selected rows
+    mean = selected_rows["revenues"].mean()
+    # Assign the mean value to the dictionary, using the
+    # country name as the key
+    avg_rev_by_country[c] = mean
+print(avg_rev_by_country)
