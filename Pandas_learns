@@ -227,3 +227,17 @@ costs = profited["revenues"] - profited["profits"]
 #The pandas library will align on the index at every opportunity, no matter if our index labels are strings or integers. This makes working with data from different sources or working with data when we have removed, added, or reordered rows much easier than it would be otherwise.
 #Assign the values in the costs to a new column in the f500 dataframe, "costs"
 f500["costs"] = costs
+
+
+
+# Using Boolean Operators
+#Create a boolean array that selects the companies with revenues greater than 100 billion
+large_revenue = f500["revenues"] > 100000
+#Create a boolean array that selects the companies with profits less than 0
+negative_profits = f500["profits"] < 0
+#we use the & operator to combine the two boolean arrays using boolean "and" logic
+#Combine large_revenue and negative_profits
+combined = large_revenue & negative_profits
+#we use the combined boolean array to make our selection on the entire dataframe
+#Use the combined boolean mask to filter f500
+big_rev_neg_profit = f500.loc[combined]
