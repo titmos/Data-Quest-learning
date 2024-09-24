@@ -368,3 +368,14 @@ for c in laptops.columns:
     new_columns.append(clean_c)
 laptops.columns = new_columns
 print(laptops.columns)
+
+
+#Converting String Columns to Numeric
+#Use the Series.unique() method to identify the unique values in the ram column of the laptops dataframe.
+
+'''The Series.unique() method returns a numpy array, not a list or pandas series. This means that we can't use the Series methods we've learned so far, like Series.head(). If you want to convert the result to a list, you can use the tolist() method of the numpy array
+
+unique_ram = laptops["ram"].unique().tolist()
+'''
+unique_ram = laptops["ram"].unique()
+print(unique_ram)
