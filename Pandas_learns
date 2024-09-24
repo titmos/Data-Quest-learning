@@ -276,6 +276,6 @@ selected_rows = f500[f500["country"] == "Japan"]
 sorted_rows = selected_rows.sort_values("profits", ascending = False)
 #try by 
 print(sorted_rows)
-Use DataFrame.iloc[] to select the first row of the sorted_rows dataframe and filter it to include just the company and profits columns.
+#Use DataFrame.iloc[] to select the first row of the sorted_rows dataframe and filter it to include just the company and profits columns.
 top_japanese_company = sorted_rows.iloc[0, [0, 4]]
 #print('\n', top_japanese_company)
