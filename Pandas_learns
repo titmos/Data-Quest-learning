@@ -361,6 +361,7 @@ def clean_col(col):
     #Returns the modified string
     return col
 
+#Use a for loop to apply the function to each item in the DataFrame.columns attribute for the laptops dataframe. Assign the result back to the DataFrame.columns attribute.
 new_columns = []
 for c in laptops.columns:
     clean_c = clean_col(c)
