@@ -341,3 +341,29 @@ for s in sectors:
     top_roa = sorted_rows.iloc[0]
     top_roa_extract = top_roa["company"]
     top_roa_by_sector[s] = top_roa_extract
+
+
+
+#Cleaning Column Names
+#efine a function, clean_col, which accepts a string argument, col and return a starndard label
+def clean_col(col):
+    #Removes any whitespace from the start and end of the string.
+    col = col.strip()
+    #Replaces the substring Operating System with the abbreviation os
+    col = col.replace("Operating System", "OS")
+    #Replaces all spaces with underscores
+    col = col.replace(" ", "_")
+    #Removes parentheses from the string
+    col = col.replace("(","")
+    col = col.replace(")","")
+    #Makes the entire string lowercase
+    col = col.lower()
+    #Returns the modified string
+    return col
+
+new_columns = []
+for c in laptops.columns:
+    clean_c = clean_col(c)
+    new_columns.append(clean_c)
+laptops.columns = new_columns
+print(laptops.columns)
