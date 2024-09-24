@@ -260,3 +260,22 @@ selected_rows = f500[f500["country"] == "China"]
 #To sort the rows in descending order — from largest to smallest — we set the ascending parameter of the method to False
 sorted_rows = selected_rows.sort_values("employees", ascending=False)
 print(sorted_rows[["company", "country", "employees"]].head())
+
+
+#Sorting Values
+# Suppose we wanted to find the company that employs the most people in China. 
+selected_rows = f500[f500["country"] == "China"]
+#To sort the rows in descending order — from largest to smallest — we set the ascending parameter of the method to False
+sorted_rows = selected_rows.sort_values("employees", ascending=False)
+#print(sorted_rows[["company", "country", "employees"]].head())
+
+#Trial Class Exercise
+#Select only the rows of f500 that have a country equal to Japan and assign the resulting dataframe to the variable selected_rows
+selected_rows = f500[f500["country"] == "Japan"]
+#Use the DataFrame.sort_values() method on selected_rows to sort it by the profits column in descending order
+sorted_rows = selected_rows.sort_values("profits", ascending = False)
+#try by 
+print(sorted_rows)
+Use DataFrame.iloc[] to select the first row of the sorted_rows dataframe and filter it to include just the company and profits columns.
+top_japanese_company = sorted_rows.iloc[0, [0, 4]]
+#print('\n', top_japanese_company)
