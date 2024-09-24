@@ -379,3 +379,12 @@ unique_ram = laptops["ram"].unique().tolist()
 '''
 unique_ram = laptops["ram"].unique()
 print(unique_ram)
+
+
+#Removing Non-Digit Characters
+#Use the Series.str.replace() method to remove the substring GB from the ram column
+laptops["screen_size"] = laptops["screen_size"].str.replace('"', '')
+
+laptops["ram"] = laptops["ram"].str.replace('GB', '')
+print(laptops["ram"].unique())
+print("`ram` dtype:", laptops["ram"].dtype)
