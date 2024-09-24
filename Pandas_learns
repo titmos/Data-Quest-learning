@@ -302,3 +302,26 @@ for c in countries:
     # country name as the key
     avg_rev_by_country[c] = mean
 print(avg_rev_by_country)
+
+
+#Activity
+# Create an empty dictionary to store the results
+top_employer_by_country = {}
+# Create an array of unique countries
+#Use the Series.unique() method
+countries = f500["country"].unique()
+
+# Use a for loop to iterate over the unique countries
+for c in countries:
+    # Use a boolean comparison to select only rows that
+    # correspond to the country for this iteration
+    selected_rows = f500[f500["country"] == c]
+#Use DataFrame.sort_values() to sort those rows by the employees column in descending order.
+    sort = selected_rows.sort_values("employees", ascending = False)
+#Select the first row from the sorted dataframe.
+    top_employer = sort.iloc[0]
+#Extract the company name from the company column of the first row.
+    company = top_employer["company"]
+#Assign the results to the top_employer_by_country dictionary
+#country name as the key, and the company name as the value
+    top_employer_by_country[c] = company
