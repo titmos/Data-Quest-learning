@@ -325,3 +325,19 @@ for c in countries:
 #Assign the results to the top_employer_by_country dictionary
 #country name as the key, and the company name as the value
     top_employer_by_country[c] = company
+
+
+#ACtivity
+f500["roa"] = f500["profits"] / f500["assets"]
+
+
+top_roa_by_sector = {}
+
+sectors = f500["sector"].unique()
+
+for s in sectors:
+    selected_rows = f500[f500["sector"] == s]
+    sorted_rows = selected_rows.sort_values("roa", ascending = False)
+    top_roa = sorted_rows.iloc[0]
+    top_roa_extract = top_roa["company"]
+    top_roa_by_sector[s] = top_roa_extract
