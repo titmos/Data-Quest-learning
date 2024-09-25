@@ -410,3 +410,14 @@ laptops.rename({"ram": "ram_gb"}, axis=1, inplace=True)
 #Use the Series.describe() method to return a series of descriptive statistics for the ram_gb column
 ram_gb_desc = laptops["ram_gb"].describe()
 print(ram_gb_desc)
+
+
+#Use the Series.str.split() method to split the gpu column into a list of words. Assign the result to gpu_split
+gpu_split = laptops["gpu"].str.split()
+#Use the Series.str accessor with [] to select the first element of each list of words.
+laptops["gpu_manufacturer"] = gpu_split.str[0]
+gpu_manufacturer_counts = laptops["gpu_manufacturer"].value_counts()
+
+#Extract the manufacturer name from the cpu column and assign the results to a new column cpu_manufacturer of the laptops dataframe. Try to do it in one line of code; try not use an intermediate "cpu_split" variable
+laptops["cpu_manufacturer"] = laptops["cpu"].str.split().str[0]
+cpu_manufacturer_counts = laptops["cpu_manufacturer"].value_counts()
