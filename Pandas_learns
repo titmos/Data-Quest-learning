@@ -388,3 +388,13 @@ laptops["screen_size"] = laptops["screen_size"].str.replace('"', '')
 laptops["ram"] = laptops["ram"].str.replace('GB', '')
 print(laptops["ram"].unique())
 print("`ram` dtype:", laptops["ram"].dtype)
+
+
+
+#Converting Columns to Numeric dtypes
+laptops["screen_size"] = laptops["screen_size"].astype(float)
+#Use the Series.astype() method to cast the ram column to an int dtype.
+laptops["ram"] = laptops["ram"].astype(int)
+print(laptops["ram"])
+#Use print() and the DataFrame.dtypes attribute to confirm that the screen_size and ram columns have been cast to numeric dtypes.
+print("`ram` dtype:", laptops["ram"].dtype)
