@@ -438,3 +438,20 @@ mapping_dict = {"Windows" : "Windows", "No OS" : "No OS", "Linux" : "Linux", "Ch
 #Use the Series.map() method along with the mapping_dict dictionary from the previous step to correct the values in the os column.
 laptops["os"] = laptops["os"].map(mapping_dict)
 print(laptops["os"].value_counts())
+
+
+
+#Dropping Missing Values
+#Recall that we can use the DataFrame.isnull() method to identify missing values
+print(laptops.isnull().sum())
+#Use DataFrame.dropna() to remove any rows from the laptops dataframe that have null values. Assign the result to laptops_no_null_rows
+laptops_no_null_rows = laptops.dropna(axis = 0)
+#Use DataFrame.dropna() to remove any columns from the laptops dataframe that have null values. Assign the result to laptops_no_null_cols
+laptops_no_null_cols = laptops.dropna(axis = 1)
+print(laptops_no_null_rows)
+print(laptops_no_null_rows.shape)
+print(laptops_no_null_cols)
+print(laptops_no_null_cols.shape)
+
+#Note 
+#DataFrame.dropna() method accepts an axis parameter, which indicates whether we want to drop along the index axis (axis=0) or the column axis (axis=1)
