@@ -471,3 +471,17 @@ laptops.loc[laptops["os"] == "No OS", "os_version"] = "Not Applicable"
 #Use the provided syntax for value_counts_before to create a similar value_counts_after variable.
 value_counts_after = laptops.loc[laptops["os_version"].isnull(), "os"].value_counts()
 print(laptops["os_version"].value_counts(dropna=False))
+
+
+
+#Challenge: Clean a String Column
+
+#Convert the values in the weight column to numeric values.
+laptops["weight"] = laptops["weight"].str.replace('kgs','').str.replace('kg', '').astype(float)
+#Rename the weight column to weight_kg
+laptops.rename({"weight" : "weight_kg"}, axis = 1, inplace = True)
+
+#Use the DataFrame.to_csv() method to save the laptops dataframe to a CSV file /tmp/laptops_cleaned.csv without index labels
+
+
+laptops.to_csv('/tmp/laptops_cleaned.csv', index=False)
