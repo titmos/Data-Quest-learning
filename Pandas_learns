@@ -455,3 +455,19 @@ print(laptops_no_null_cols.shape)
 
 #Note 
 #DataFrame.dropna() method accepts an axis parameter, which indicates whether we want to drop along the index axis (axis=0) or the column axis (axis=1)
+
+
+
+#Filling Missing Values
+#While dropping rows or columns is the easiest approach to dealing with missing values, it may not always be the best approach
+#.value_counts(dropna=False): This method generates a frequency table of unique values in the Series
+#On default value_counts() does not return frequency of NAn/Missing values
+
+#By setting dropna=False, the method includes missing values (NA) in the table.
+value_counts_before = laptops.loc[laptops["os_version"].isnull(), "os"].value_counts()
+laptops.loc[laptops["os"] == "macOS", "os_version"] = "X"
+#Use a boolean array to select the rows that have the value No OS in the os column. Then, use loc[] and assignment to set the value Not Applicable in the os_version column for those selected rows.
+laptops.loc[laptops["os"] == "No OS", "os_version"] = "Not Applicable"
+#Use the provided syntax for value_counts_before to create a similar value_counts_after variable.
+value_counts_after = laptops.loc[laptops["os_version"].isnull(), "os"].value_counts()
+print(laptops["os_version"].value_counts(dropna=False))
