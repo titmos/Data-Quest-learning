@@ -421,3 +421,20 @@ gpu_manufacturer_counts = laptops["gpu_manufacturer"].value_counts()
 #Extract the manufacturer name from the cpu column and assign the results to a new column cpu_manufacturer of the laptops dataframe. Try to do it in one line of code; try not use an intermediate "cpu_split" variable
 laptops["cpu_manufacturer"] = laptops["cpu"].str.split().str[0]
 cpu_manufacturer_counts = laptops["cpu_manufacturer"].value_counts()
+
+
+#Correcting Bad Values
+#Use the Series.unique() method on the os column to display a list of all the unique values it contains
+
+print(laptops['os'].unique())
+
+#Create a dictionary called mapping_dict where each key is a unique value from the previous step, and the corresponding value is its replacement
+
+''' When using the map() method, make sure that each unique value in the series is represented as a key in the dictionary being passed to the map() method, otherwise you'll get NaN values in your resulting series.
+ If there are values in the series you don't want to change, ensure you set their keys and values equal to each other so that "no changes are mapped" but each unique value appears as a key in the dictionary. '''
+
+mapping_dict = {"Windows" : "Windows", "No OS" : "No OS", "Linux" : "Linux", "Chrome OS" : "Chrome OS", "macOS" : "macOS", "Mac OS" : "macOS", "Android" : "Android"}
+
+#Use the Series.map() method along with the mapping_dict dictionary from the previous step to correct the values in the os column.
+laptops["os"] = laptops["os"].map(mapping_dict)
+print(laptops["os"].value_counts())
