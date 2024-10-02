@@ -24,3 +24,17 @@ plt.title('New Reported Deaths By Month (Globally)')
 plt.xlabel('Month Number')
 plt.ylabel('Number Of Deaths')
 plt.show()
+
+
+import pandas as pd
+#Read in the WHO_time_series.csv file
+who_time_series = pd.read_csv('WHO_time_series.csv')
+
+#Modify the Date_reported column in who_time_series to a datetime data type
+
+who_time_series['Date_reported'] = pd.to_datetime(who_time_series['Date_reported'])
+print(who_time_series.head(5))
+print('\n')
+print(who_time_series.tail(5))
+print('\n') 
+print(who_time_series.info())
