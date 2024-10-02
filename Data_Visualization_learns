@@ -124,3 +124,17 @@ plt.legend()
 plt.show()
 
 #now the dates on the bottom of the graph are overlapping and we can barely read them. To fix this, we can rotate the labels using the plt.xticks() function
+
+
+#Scatter Plots
+#Each point (also called a marker) on the scatter plot has an x-coordinate and an y-coordinate.
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+bike_sharing = pd.read_csv('day.csv')
+
+plt.scatter(bike_sharing['temp'], bike_sharing['cnt'])
+plt.xlabel('Temperature')
+plt.ylabel('Bikes Rented')
+plt.show()
