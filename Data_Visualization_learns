@@ -86,3 +86,18 @@ greatest_july = 'The UK'
 lowest_july = 'France'
 #Which country shows the greatest increase during March?
 increase_march = 'Italy'
+
+
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+bike_sharing = pd.read_csv('day.csv')
+#When we pass a series of strings to plt.plot(), Matplotlib doesn't know how to handle that very well
+bike_sharing['dteday'] = pd.to_datetime(bike_sharing['dteday'])
+
+plt.plot(bike_sharing['dteday'], bike_sharing['cnt'])
+plt.xticks(rotation=45)
+plt.show()
+
+#now the dates on the bottom of the graph are overlapping and we can barely read them. To fix this, we can rotate the labels using the plt.xticks() function
