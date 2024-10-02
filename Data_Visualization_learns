@@ -101,3 +101,26 @@ plt.xticks(rotation=45)
 plt.show()
 
 #now the dates on the bottom of the graph are overlapping and we can barely read them. To fix this, we can rotate the labels using the plt.xticks() function
+
+
+#Activity
+import pandas as pd
+import matplotlib.pyplot as plt
+
+bike_sharing = pd.read_csv('day.csv')
+#When we pass a series of strings to plt.plot(), Matplotlib doesn't know how to handle that very well
+bike_sharing['dteday'] = pd.to_datetime(bike_sharing['dteday'])
+
+#plot the dteday column on the x-axis and the casual column on the y-axis.
+plt.plot(bike_sharing['dteday'], bike_sharing['casual'], label = 'Casual')
+#plot dteday on the x-axis and registered on the y-axis.
+plt.plot(bike_sharing['dteday'], bike_sharing['registered'], label = 'Registered')
+#Rotate the x-ticks to an angle of 30 degrees using plt.xticks()
+plt.xticks(rotation=30)
+plt.ylabel('Bikes Rented')
+plt.xlabel('Date')
+plt.title('Bikes Rented: Casual vs. Registered')
+plt.legend()
+plt.show()
+
+#now the dates on the bottom of the graph are overlapping and we can barely read them. To fix this, we can rotate the labels using the plt.xticks() function
