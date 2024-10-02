@@ -57,3 +57,32 @@ plt.show()
 #Determine the type of growth by examining the line graph.
 #Assign your answer to the variable argentina_graph_type
 argentina_graph_type = 'exponential'
+
+
+
+'''
+we're going to add a legend that shows which color corresponds to which country. In the code below, we first add a label argument to the plt.plot() function, and then we use the plt.legend() function:
+
+When we use plt.plot() the first time, Matplotlib creates a line graph. When we use plt.plot() again, Matplotlib creates another line graph that shares the same x- and y-axis as the first graph. If we want Matplotlib to draw the second line graph separately, we need to close the first graph with the plt.show() function. '''
+
+france = who_time_series[who_time_series['Country'] == 'France']
+uk = who_time_series[who_time_series['Country'] == 'The United Kingdom']
+italy = who_time_series[who_time_series['Country'] == 'Italy']
+
+
+#Plot the evolution of cumulative cases for France, the United Kingdom, and Italy on the same graph.
+#Add a legend to the graph using plt.legend(). Use the labels France, The UK, and Italy
+plt.plot(france['Date_reported'], france['Cumulative_cases'],
+         label='France')
+plt.plot(uk['Date_reported'], uk['Cumulative_cases'],
+         label='The UK')
+plt.plot(italy['Date_reported'], italy['Cumulative_cases'],
+         label='Italy')
+plt.legend()
+plt.show()
+#Which country has the greatest number of cases at the end of July?
+greatest_july = 'The UK'
+#Which country has the lowest number of cases at the end of July?
+lowest_july = 'France'
+#Which country shows the greatest increase during March?
+increase_march = 'Italy'
