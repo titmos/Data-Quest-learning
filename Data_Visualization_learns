@@ -38,3 +38,22 @@ print('\n')
 print(who_time_series.tail(5))
 print('\n') 
 print(who_time_series.info())
+
+
+##Types of Line Graphs
+#Plot a line graph Argentina.
+
+
+#Isolate the data for Argentina in a variable named argentina
+argentina = who_time_series[who_time_series['Country'] == 'Argentina']
+
+#Plot the Cumulative_cases
+plt.plot(argentina['Date_reported'], argentina['Cumulative_cases'])
+plt.title('Argentina: Cumulative Reported Cases')
+plt.xlabel('Date')
+plt.ylabel('Number Of Cases')
+plt.show()
+
+#Determine the type of growth by examining the line graph.
+#Assign your answer to the variable argentina_graph_type
+argentina_graph_type = 'exponential'
