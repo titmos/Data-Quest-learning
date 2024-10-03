@@ -273,3 +273,16 @@ registered_freq = bike_sharing['registered'].value_counts(bins=10).sort_index()
 casual_freq = bike_sharing['casual'].value_counts(bins=10).sort_index()
 
 ''' The ( character indicates that the starting number is not included, while the ] indicates that the ending number is included.  '''
+
+
+#Histograms
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+bike_sharing = pd.read_csv('day.csv')
+bike_sharing['dteday'] = pd.to_datetime(bike_sharing['dteday'])
+
+#Generate a histogram for the casual column
+plt.hist(bike_sharing['casual'])
+plt.show()
