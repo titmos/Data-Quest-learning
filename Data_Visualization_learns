@@ -202,3 +202,14 @@ bike_sharing['workingday'].replace({1:0, 0:1}, inplace=True)
 
 #let's calculate workingday correlation with the casual and registered columns
 print(bike_sharing.corr()['workingday'][['casual', 'registered']])
+
+
+#Bar Plots
+
+import matplotlib.pyplot as plt
+working_days = ['Non-Working Day', 'Working Day']
+registered_avg = [2959, 3978]
+
+#Generate a bar plot 
+plt.bar(working_days, registered_avg)
+plt.show()
