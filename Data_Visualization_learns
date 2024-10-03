@@ -235,7 +235,7 @@ plt.xticks(ticks=[0, 1, 2, 3, 4, 5, 6], labels=['Sunday', 'Monday', 'Tuesday', '
 plt.show()
 
 
-
+#Frequency Tables
 import matplotlib.pyplot as plt
 
 unique_values = [1, 2, 3, 4]
