@@ -189,3 +189,16 @@ plt.scatter(bike_sharing['windspeed'], bike_sharing['hum'])
 plt.xlabel('Wind Speed')
 plt.ylabel('Humidity')
 plt.show()
+
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+bike_sharing = pd.read_csv('day.csv')
+bike_sharing['dteday'] = pd.to_datetime(bike_sharing['dteday'])
+
+#However, the 1 and 0 encoding is arbitrary. The creators of this dataset could have assigned 0 to a working day and 1 to a non-working day. Below, we make this change ourselves
+bike_sharing['workingday'].replace({1:0, 0:1}, inplace=True)
+
+#let's calculate workingday correlation with the casual and registered columns
+print(bike_sharing.corr()['workingday'][['casual', 'registered']])
