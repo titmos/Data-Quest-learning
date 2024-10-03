@@ -233,3 +233,26 @@ plt.bar(weekday_averages['weekday'], weekday_averages['registered'])
 #Some of the x-tick labels are now overlapping. One thing we can do is leverage the rotation parameter 
 plt.xticks(ticks=[0, 1, 2, 3, 4, 5, 6], labels=['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], rotation = 30)
 plt.show()
+
+
+
+import matplotlib.pyplot as plt
+
+unique_values = [1, 2, 3, 4]
+weather_2011 = [226, 124, 15, 0]
+weather_2012 = [237, 123, 6, 0]
+
+#Generate a bar plot to display the weather patterns
+plt.bar(unique_values, weather_2011)
+plt.xticks(ticks=[1,2,3,4])
+plt.title('Weather Patterns: 2011')
+plt.ylabel('Frequency')
+plt.xlabel('Unique Values')
+plt.show()
+
+plt.bar(unique_values, weather_2012)
+plt.xticks(ticks=[1,2,3,4])
+plt.title('Weather Patterns: 2012')
+plt.ylabel('Frequency')
+plt.xlabel('Unique Values')
+plt.show()
