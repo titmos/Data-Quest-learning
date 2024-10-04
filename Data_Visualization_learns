@@ -303,3 +303,17 @@ traffic['Slowness in traffic (%)'].plot.hist()
 plt.title('Distribution of Slowness in traffic (%)')
 plt.xlabel('Slowness in traffic (%)')
 plt.show()
+
+
+#Frequency of Incidents
+import pandas as pd
+import matplotlib.pyplot as plt
+
+traffic = pd.read_csv('traffic_sao_paulo.csv', sep=';')
+traffic['Slowness in traffic (%)'] = traffic['Slowness in traffic (%)'].str.replace(',', '.')
+traffic['Slowness in traffic (%)'] = traffic['Slowness in traffic (%)'].astype(float)
+# would narrow the traffic table down to just the Incidents
+incidents = traffic.drop(['Hour (Coded)', 'Slowness in traffic (%)'], axis=1)
+
+incidents.sum().plot.barh()
+plt.show()
