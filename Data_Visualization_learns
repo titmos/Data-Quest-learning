@@ -286,3 +286,20 @@ bike_sharing['dteday'] = pd.to_datetime(bike_sharing['dteday'])
 #Generate a histogram for the casual column
 plt.hist(bike_sharing['casual'])
 plt.show()
+
+
+##Pandas Visualization Methods
+''' Series.plot.bar(): generates a vertical bar plot.
+Series.plot.barh(): generates a horizontal bar plot.
+Series.plot.line(): generates a line plot. '''
+
+import matplotlib.pyplot as plt
+import pandas as pd
+traffic = pd.read_csv('traffic_sao_paulo.csv', sep=';')
+traffic['Slowness in traffic (%)'] = traffic['Slowness in traffic (%)'].str.replace(',', '.')
+traffic['Slowness in traffic (%)'] = traffic['Slowness in traffic (%)'].astype(float)
+
+traffic['Slowness in traffic (%)'].plot.hist()
+plt.title('Distribution of Slowness in traffic (%)')
+plt.xlabel('Slowness in traffic (%)')
+plt.show()
