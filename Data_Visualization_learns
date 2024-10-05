@@ -357,3 +357,29 @@ slowness_20_or_more = slowness_20_or_more.drop(['Slowness in traffic (%)', 'Hour
 incident_frequencies = slowness_20_or_more.sum()
 incident_frequencies.plot.barh()
 plt.show()
+
+
+
+#How Traffic Slowness Change 
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+traffic = pd.read_csv('traffic_sao_paulo.csv', sep=';')
+traffic['Slowness in traffic (%)'] = traffic['Slowness in traffic (%)'].str.replace(',', '.')
+traffic['Slowness in traffic (%)'] = traffic['Slowness in traffic (%)'].astype(float)
+
+#to isolate the data for each day — from Monday to Friday
+days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+traffic_per_day = {} #empty dictionary to save the days (key, list pair)
+#iterate over range() and days at the same time
+#days is a generic list we created
+#zip() function is used to combine two or more iterables (e.g., lists, tuples) element-wise, creating a new iterable with pairs of corresponding elements from the input iterables.
+for i, day in zip(range(0, 135, 27), days):
+    #The code inside the loop calculates a slice of the traffic list for each day, starting at index i and ending at index i + 27
+    each_day_traffic = traffic[i:i+27]#uses iloc
+    traffic_per_day[day] = each_day_traffic #saves it in the dictionary using the day as the Key
+    traffic_per_day[day].plot.line(x='Hour (Coded)', y='Slowness in traffic (%)')
+    plt.title(day)
+    plt.ylim([0, 25])
+    plt.show()
