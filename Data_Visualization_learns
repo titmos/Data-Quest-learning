@@ -427,3 +427,35 @@ plt.subplot(3, 2, 4)
 plt.subplot(3, 2, 5)
 plt.subplot(3, 2, 6)
 plt.show()
+
+
+
+#Grid Charts (II)
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+traffic = pd.read_csv('traffic_sao_paulo.csv', sep=';')
+traffic['Slowness in traffic (%)'] = traffic['Slowness in traffic (%)'].str.replace(',', '.')
+traffic['Slowness in traffic (%)'] = traffic['Slowness in traffic (%)'].astype(float)
+
+days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+traffic_per_day = {}
+for i, day in zip(range(0, 135, 27), days):
+    each_day_traffic = traffic[i:i+27]
+    traffic_per_day[day] = each_day_traffic
+    
+''' The plots are overlapping, and the grid chart as a whole looks a bit too packed. To fix this, we're going to increase the size of the entire figure by using plt.figure(figsize=(width, height)) 
+
+Matplotlib allows us to customize the subplots individually. All the Matplotlib code under a certain plt.subplot() function is targeted towards the particular subplot that function generates.
+
+When we need to use the plt.subplot() function multiple times, it's better to use a for loop. Below, for instance, we create all the six plots with significantly less code.
+'''
+plt.figure(figsize=(10, 12))
+for i, day in zip(range(1, 7), days) :
+    plt.subplot(3, 2, i)
+    plt.plot(traffic_per_day[day]['Hour (Coded)'], traffic_per_day[day]['Slowness in traffic (%)'])
+    plt.ylim([0, 25])
+    plt.title(day)
+
+plt.show()
