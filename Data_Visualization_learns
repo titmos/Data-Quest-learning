@@ -381,5 +381,5 @@ for i, day in zip(range(0, 135, 27), days):
     traffic_per_day[day] = each_day_traffic #saves it in the dictionary using the day as the Key
     traffic_per_day[day].plot.line(x='Hour (Coded)', y='Slowness in traffic (%)')
     plt.title(day)
-    plt.ylim([0, 25])
+    plt.ylim([0, 25]) #to make the range of the y-axis the same for all plots — this helps with comparison
     plt.show()
