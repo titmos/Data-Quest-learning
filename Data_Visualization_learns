@@ -418,7 +418,7 @@ import matplotlib.pyplot as plt
 traffic = pd.read_csv('traffic_sao_paulo.csv', sep=';')
 traffic['Slowness in traffic (%)'] = traffic['Slowness in traffic (%)'].str.replace(',', '.')
 traffic['Slowness in traffic (%)'] = traffic['Slowness in traffic (%)'].astype(float)
-
+#To create a grid chart, we start by creating the larger figure where we will plot all the graphs
 plt.figure()
 plt.subplot(3, 2, 1)
 plt.subplot(3, 2, 2)
