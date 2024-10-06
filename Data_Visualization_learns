@@ -528,3 +528,22 @@ sns.set_theme()
 #We can find all the available color palettes in Matplotlib's documentation 
 sns.relplot(data=housing, x='Gr Liv Area', y='SalePrice', hue = 'Overall Qual', palette='RdYlGn')
 plt.show()
+
+
+##Variable Representation: Size
+'''
+Another element we can use to represent values is size. A dot can have a color and x- and y-coordinates, but it can also be larger or smaller. Below, we use a size representation to add the Garage Area variable on the graph — we use the size parameter. Recall that Garage Area describes the garage area in square feet.
+
+To make the size differences more visible, we'll increase the size range — the sizes parameter takes in a tuple specifying the minimum and maximum size.
+The sizes parameter can take in a tuple only if the variable we represent is numerical 
+'''
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+housing = pd.read_csv('housing.csv')
+sns.set_theme()
+sns.relplot(data=housing, x='Gr Liv Area', y='SalePrice',
+            hue='Overall Qual', palette='RdYlGn',
+           size = 'Garage Area', sizes =(1, 300))
+plt.show()
