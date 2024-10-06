@@ -512,3 +512,19 @@ sns.set_theme()
 sns.relplot(data = housing, x = 'Gr Liv Area', y = 'SalePrice')
 plt.show()
 correlation = "positive"
+
+
+# Variable Representation: Color
+#on the scatter plot is blue. We can change the color intensity of the dots to represent a new variable.
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+#we use the hue parameter to add the Overall Qual
+''' Seaborn matched lower ratings with lighter colors and higher ratings with darker colors. A pale pink represents a rating of one, while black represents a ten. Seaborn also generated a legend to describe which color describes which rating.
+'''
+housing = pd.read_csv('housing.csv')
+sns.set_theme()
+#We can find all the available color palettes in Matplotlib's documentation 
+sns.relplot(data=housing, x='Gr Liv Area', y='SalePrice', hue = 'Overall Qual', palette='RdYlGn')
+plt.show()
