@@ -496,3 +496,19 @@ for day in days:
     
 plt.legend()
 plt.show
+
+
+#Relational Plots and Multiple Variables
+#Seaborn
+
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+housing = pd.read_csv('housing.csv')
+
+#To switch to Seaborn defaults, we need to call
+sns.set_theme()
+#e need to call the sns.set_theme() function before generating the plot 
+sns.relplot(data = housing, x = 'Gr Liv Area', y = 'SalePrice')
+plt.show()
+correlation = "positive"
