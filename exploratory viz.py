@@ -21,3 +21,18 @@ fig, ax = plt.subplots()
 ax.barh(top20_deathtoll['Country_Other'], top20_deathtoll['Total_Deaths'])
 plt.show()
 
+
+#Mobile-Friendly proportions
+
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+top20_deathtoll = pd.read_csv('top20_deathtoll.csv')
+
+#To change the proportions, we can use the figsize parameter inside the plt.subplots(figsize=(width, height)) function
+#ax = plt.subplots(figsize=(3, 5))
+
+fig, ax = plt.subplots(figsize = (4.5, 6))
+ax.barh(top20_deathtoll['Country_Other'], top20_deathtoll['Total_Deaths'])
+plt.show()
