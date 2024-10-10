@@ -38,3 +38,15 @@ We'll start by using the GroupBy.get_group() method to select data for a certain
 grouped = happiness2015.groupby('Region')
 #to view a portion of the grouped data "get_group() method is called"
 aus_nz = grouped.get_group('Australia and New Zealand')
+
+
+#Exploring GroupBy Objects
+grouped = happiness2015.groupby('Region')
+print(grouped.groups)
+# We obtained the Region and list of indexes of the coontries in the region using the above
+#I tested the indexes using iloc
+north_america = happiness2015.iloc[[4, 14]]
+# used the get group to get the North america list
+na_group = grouped.get_group('North America')
+# compared results 
+equal = na_group == north_america
