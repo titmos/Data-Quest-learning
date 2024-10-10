@@ -140,3 +140,41 @@ ax.tick_params(top = False, left=False)
 ax.tick_params(axis='x', colors='grey')
 ax.set_xticks([0, 150000, 300000])
 plt.show()
+
+
+
+#Title and Subtitle
+
+''' 
+If someone looks at our graph, they won't be able to tell what the quantity means. They see the USA has almost 300,000 of something, but what is that something?
+Instead of adding an x-axis label, we'll use the title and subtitle area to give the readers the necessary details.
+Add a subtitle that explains what the quantity describes and when the data was collected.
+Use the title to show readers more data 
+
+To add a title and a subtitle, we're going to use the Axes.text() method
+x and y: the coordinates that give the position of the text.
+s: the text.
+
+Axes.text() method has a size parameter we can use to control the text size. Also, it has a weight parameter that enables us to bold the texto0
+
+'''
+import pandas as pd
+import matplotlib.pyplot as plt
+
+top20_deathtoll = pd.read_csv('top20_deathtoll.csv')
+
+fig, ax = plt.subplots(figsize=(4.5, 6))
+ax.barh(top20_deathtoll['Country_Other'],
+        top20_deathtoll['Total_Deaths'],
+        height=0.45, color='#af0b1e')
+
+for location in ['left', 'right', 'top', 'bottom']:
+    ax.spines[location].set_visible(False)
+    
+ax.set_xticks([0, 150000, 300000])
+ax.xaxis.tick_top()
+ax.tick_params(top=False, left=False)
+ax.tick_params(axis='x', colors='grey')
+ax.text(x=-80000, y=23.5, s='The Death Toll Worldwide Is 1.5M+', size=17, weight='bold')
+ax.text(x=-80000, y=22.5, s='Top 20 countries by death toll (December 2020)', size = 12)
+plt.show()
