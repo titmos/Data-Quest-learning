@@ -52,3 +52,27 @@ top20_deathtoll = pd.read_csv('top20_deathtoll.csv')
 fig, ax = plt.subplots(figsize = (4.5, 6))
 ax.barh(top20_deathtoll['Country_Other'], top20_deathtoll['Total_Deaths'])
 plt.show()
+
+
+#Erasing Non-Data Ink
+'''
+To remove the axes (also called spines), we can use the Axes.spines[position].set_visible(bool) method, where position is a string indicating the location of the axis: 'left', 'right', 'top', and 'bottom'
+fastest way is to use a for loop:
+
+To remove the ticks, we can use the Axes.tick_params(bottom, top, left, right) method.
+'''
+import pandas as pd
+import matplotlib.pyplot as plt
+
+top20_deathtoll = pd.read_csv('top20_deathtoll.csv')
+
+fig, ax = plt.subplots(figsize=(4.5, 6))
+ax.barh(top20_deathtoll['Country_Other'],
+         top20_deathtoll['Total_Deaths'])
+#Remove all four spines from the horizontal bar plot.
+for location in ['left', 'right', 'bottom', 'top']:
+    ax.spines[location].set_visible(False)
+
+#Remove the bottom and left ticks from the horizontal bar plot.
+ax.tick_params(bottom=False, left=False)
+plt.show()
