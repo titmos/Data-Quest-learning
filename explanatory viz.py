@@ -178,3 +178,46 @@ ax.tick_params(axis='x', colors='grey')
 ax.text(x=-80000, y=23.5, s='The Death Toll Worldwide Is 1.5M+', size=17, weight='bold')
 ax.text(x=-80000, y=22.5, s='Top 20 countries by death toll (December 2020)', size = 12)
 plt.show()
+
+
+#Final Touches
+''' ext, we're going to left-align the y-tick labels (the country names) by applying a for loop over the country names using Python's zip function. Thereafter, we will leverage the flexibility of matplotlib's Axes.text() method. First, however, we're going to remove the current labels using the Axes.set_yticklabels() method. '''
+import pandas as pd
+import matplotlib.pyplot as plt
+
+top20_deathtoll = pd.read_csv('top20_deathtoll.csv')
+
+fig, ax = plt.subplots(figsize=(4.5, 6))
+ax.barh(top20_deathtoll['Country_Other'],
+        top20_deathtoll['Total_Deaths'],
+        height=0.45, color='#af0b1e')
+
+for location in ['left', 'right', 'top', 'bottom']:
+    ax.spines[location].set_visible(False)
+''' First, we'll make the y-tick labels easier to read. We'll add a comma to both 150000 and 300000 to make them more readable — so people don't have to struggle to tell whether it's a 30,000 or a 300,000, for instance we give ax.set_xticks([0, 150000, 300000]) a label.'''
+ax.set_xticks([0, 150000, 300000])
+#with
+ax.set_xticklabels(['0', '150,000', '300,000'])
+ax.xaxis.tick_top()
+ax.tick_params(top=False, left=False)
+ax.tick_params(axis='x', colors='grey')
+ax.text(x=-80000, y=23.5,
+        s='The Death Toll Worldwide Is 1.5M+',
+        weight='bold', size=17)
+ax.text(x=-80000, y=22.5,
+        s='Top 20 countries by death toll (December 2020)',
+        size=12)
+''' Next, we're going to left-align the y-tick labels (the country names) by applying a for loop over the country names using Python's zip function. Thereafter, we will leverage the flexibility of matplotlib's Axes.text() method. First, however, we're going to remove the current labels using the Axes.set_yticklabels() method. '''
+ax.set_yticklabels([]) # an empty list removes the labels
+country_names = top20_deathtoll['Country_Other']
+for i, country in zip(range(20), country_names):
+    ax.text(x=-80000, y=i-0.15, s=country)
+''' Readers who explore the graph will try to determine the approximate death toll for each country. To help them, we're going to draw a vertical line below the 150,000 value. To do that, we use the Axes.axvline(x) method, where x is the x-coordinate where the line begins: '''    
+ax.axvline(x=150000, ymin=0.045, c='grey', alpha=0.5)
+''' The color of the vertical line is too bright and stands out more than we want. Moreover, the line spans too far vertically and isn't on the same line with the Turkey label. To fix these problems, we're going to use the following:
+
+The ymin parameter to make it shorter — where 0 is the bottom of the plot, and 1 is the top of the plot.
+The c parameter to change the color to 'grey'.
+The alpha parameter to add transparency to the line. '''
+
+plt.show()
