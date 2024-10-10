@@ -24,3 +24,17 @@ for item in region:
     region_mean = region_group['Happiness Score'].mean()
     #Assign the mean value to the mean_happiness dictionary
     mean_happiness[item] = region_mean
+
+
+#Creating GroupBy Objects
+
+'''
+To create a GroupBy object, we use the DataFrame.groupby() method:
+df.groupby('col')
+"col" is the column you want to use to group the dataset.
+
+We'll start by using the GroupBy.get_group() method to select data for a certain group.
+'''
+grouped = happiness2015.groupby('Region')
+#to view a portion of the grouped data "get_group() method is called"
+aus_nz = grouped.get_group('Australia and New Zealand')
