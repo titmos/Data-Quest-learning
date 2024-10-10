@@ -76,3 +76,28 @@ for location in ['left', 'right', 'bottom', 'top']:
 #Remove the bottom and left ticks from the horizontal bar plot.
 ax.tick_params(bottom=False, left=False)
 plt.show()
+
+
+
+#Erasing Redundant Data-Ink
+'''
+To make the bars less thick, we can use the height parameter inside the Axes.barh() method. The height parameter has a default value of 0.8
+
+To remove some of the x-tick labels, we use the Axes.set_xticks method. Below, we only keep the labels 0, 100000, 200000, and 300000
+
+'''
+import pandas as pd
+import matplotlib.pyplot as plt
+
+top20_deathtoll = pd.read_csv('top20_deathtoll.csv')
+#Reduce the thickness of each bar to a value of 0.45
+fig, ax = plt.subplots(figsize=(4.5, 6))
+ax.barh(top20_deathtoll['Country_Other'],
+       top20_deathtoll['Total_Deaths'], height=0.45)
+#Keep only 0, 150000, and 300000 as x-tick labels.
+ax.set_xticks([0, 150000, 300000])
+for location in ['left', 'right', 'top', 'bottom']:
+    ax.spines[location].set_visible(False)
+    
+ax.tick_params(bottom=False, left=False)
+plt.show()
