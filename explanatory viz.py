@@ -101,3 +101,42 @@ for location in ['left', 'right', 'top', 'bottom']:
     
 ax.tick_params(bottom=False, left=False)
 plt.show()
+
+
+#The Direction of Reading
+
+'''
+One problem with our graph is that the tick labels are located at the bottom. People will immediately see the country names, the bars, but they may get confused about the quantities.
+
+To address that, we're going to move the tick labels at the top of the graph using the Axes.xaxis.tick_top() method: 
+Then remove the top ticks
+
+Right now, the first thing people will probably see are the x-tick labels. We want readers to focus on the data, so we'll do two things:
+
+We'll color the x-tick labels in grey so they don't stand out visually so much.
+We'll color the bars in a shade of red.
+Axes.tick_params() method
+However, we need to call it one more time because we only want to modify the ticks of the x-axis 
+ax.tick_params(axis='x', colors='grey')
+
+To change the colors of the bar, we use the color parameter in the Axes.barh(color) method. 
+'''
+import pandas as pd
+import matplotlib.pyplot as plt
+
+top20_deathtoll = pd.read_csv('top20_deathtoll.csv')
+
+fig, ax = plt.subplots(figsize=(4.5, 6))
+ax.barh(top20_deathtoll['Country_Other'],
+        top20_deathtoll['Total_Deaths'],
+        height=0.45, color='#af0b1e')
+
+for location in ['left', 'right', 'top', 'bottom']:
+    ax.spines[location].set_visible(False)
+#Move the x-tick labels on top and make sure no ticks are visible.
+ax.xaxis.tick_top()   
+ax.tick_params(top = False, left=False)
+#Color the x-tick labels in grey.
+ax.tick_params(axis='x', colors='grey')
+ax.set_xticks([0, 150000, 300000])
+plt.show()
