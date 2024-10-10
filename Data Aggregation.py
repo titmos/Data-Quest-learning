@@ -50,3 +50,13 @@ north_america = happiness2015.iloc[[4, 14]]
 na_group = grouped.get_group('North America')
 # compared results 
 equal = na_group == north_america
+
+
+#Common Aggregation Methods with Groupby
+# Group by 'Region'
+grouped = happiness2015.groupby('Region')
+
+#A basic example of aggregation is computing the number of rows for each of the groups. We can use the GroupBy.size() method to confirm the size of each region group
+print(grouped. size())
+'''   it's often good practice to specify the numeric_only parameter for aggregation methods like mean(), sum(), min(), and max() to avoid TypeErrors. This parameter determines whether to include only numeric columns in the computation. By setting numeric_only=True, we ensure that only numeric columns are considered for the aggregation, avoiding potential errors with non-numeric data. '''
+means = grouped.mean(numeric_only = True)
