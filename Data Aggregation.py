@@ -87,3 +87,13 @@ print(mean_max_dif)
 #method chaining
 happiness_means = happiness2015.groupby('Region')['Happiness Score'].mean()
 ''' Both approaches will return the same result. However, if you plan on computing multiple aggregations with the same GroupBy object, we recommend that you save the object to a variable first. (You may want to save it to a variable in every cases to make your code easier to understand. As we compute more complex aggregations, the syntax can become confusing!) '''
+
+
+#Aggregation with Pivot Tables
+#we use the df.pivot_table() method to perform the same aggregation as above.
+pv_happiness = happiness2015.pivot_table(values='Happiness Score', index='Region', aggfunc=np.mean, margins = True)
+
+''' this method returns a DataFrame, so we can apply normal DataFrame filtering and methods to the result. For example, let's use the DataFrame.plot() method to create a visualization. Note that we exclude aggfunc below because the mean is the default aggregation function of df.pivot_table() '''
+pv_happiness.plot(kind='barh', title='Mean Happiness Scores by Region', xlim=(0,10), legend=False)
+plt.show()
+world_mean_happiness = happiness2015['Happiness Score'].mean()
