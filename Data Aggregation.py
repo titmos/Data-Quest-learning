@@ -1,6 +1,4 @@
 ## Data Aggregation learns
-
-
 import pandas as pd
 happiness2015 = pd.read_csv('World_Happiness_2015.csv')
 first_5 = happiness2015.head() #First five rows
@@ -84,3 +82,8 @@ mean_max_dif = happy_grouped.agg(dif)
 print(happy_mean_max)
 
 print(mean_max_dif)
+
+#Computing Multiple and Custom Aggregations with the Agg() Method
+#method chaining
+happiness_means = happiness2015.groupby('Region')['Happiness Score'].mean()
+''' Both approaches will return the same result. However, if you plan on computing multiple aggregations with the same GroupBy object, we recommend that you save the object to a variable first. (You may want to save it to a variable in every cases to make your code easier to understand. As we compute more complex aggregations, the syntax can become confusing!) '''
