@@ -69,3 +69,18 @@ grouped = happiness2015.groupby('Region')
 happy_grouped = grouped['Happiness Score']
 happy_mean = happy_grouped.mean()
 print(happy_mean)
+
+
+#Introduction to the Agg() Method
+#to apply more than one kind of aggregation to a column at a time, we use the groupby.add() method 
+import numpy as np
+grouped = happiness2015.groupby('Region')
+happy_grouped = grouped['Happiness Score']
+
+def dif(group):
+    return group.max() - group.mean()
+happy_mean_max = happy_grouped.agg([np.mean, np.max])
+mean_max_dif = happy_grouped.agg(dif)
+print(happy_mean_max)
+
+print(mean_max_dif)
