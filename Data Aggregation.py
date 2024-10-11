@@ -153,3 +153,20 @@ head_2015 = happiness2015[['Year','Country','Happiness Score', 'Standard Error']
 head_2016 = happiness2016[['Country','Happiness Score', 'Year']].head(3)
 
 concat_update_index = pd.concat([head_2015, head_2016], axis = 0, ignore_index = True)
+
+
+#Joining Dataframes with the Merge Function
+
+'''
+pd.merge() function - a function that can execute high-performance database-style joins.
+the merge function only combines dataframes horizontally (axis=1) and can only combine two dataframes at a time.
+
+However, it can be valuable when we need to combine very large dataframes quickly and provides more flexibility in terms of how data can be combined.
+
+With the merge() function, we'll combine dataframes on a key, a shared index or column. 
+'''
+
+three_2015 = happiness2015[['Country','Happiness Rank','Year']].iloc[2:5]
+three_2016 = happiness2016[['Country','Happiness Rank','Year']].iloc[2:5]
+#join three_2015 and three_2016 on the Country column
+merged = pd.merge(left = three_2015, right = three_2016, on = 'Country')
