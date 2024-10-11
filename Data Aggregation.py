@@ -112,3 +112,19 @@ print(happy_family_stats)
 
 pv_happy_family_stats = happiness2015.pivot_table(['Happiness Score', 'Family' ], 'Region', aggfunc=[np.min, np.max , np.mean], margins=True)
 print(pv_happy_family_stats)
+
+
+#Combining Dataframes with the Concat Function
+#We've already saved the subsets from happiness2015 and happiness2016
+
+head_2015 = happiness2015[['Country','Happiness Score', 'Year']].head(3)
+head_2016 = happiness2016[['Country','Happiness Score', 'Year']].head(3)
+
+# combine head_2015 and head_2016 along axis = 0
+concat_axis0 = pd.concat([head_2015, head_2016], axis = 0)
+
+# combine head_2015 and head_2016 along axis = 1. 
+concat_axis1 = pd.concat([head_2015, head_2016], axis = 1)
+
+question1 = 6 #number of rows in concat_axis0
+question2 = 3 #number of rows in concat_axis1
