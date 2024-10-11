@@ -128,3 +128,17 @@ concat_axis1 = pd.concat([head_2015, head_2016], axis = 1)
 
 question1 = 6 #number of rows in concat_axis0
 question2 = 3 #number of rows in concat_axis1
+
+
+#Combining Dataframes with the Concat Function Continued
+'''  when you use the concat() function to combine dataframes with the same shape and index, you can think of the function as "gluing" dataframes together.
+
+However, what happens if the dataframes have different shapes or columns? Let's confirm the concat() function's behavior when we combine dataframes that don't have the same shape
+'''
+
+head_2015 = happiness2015[['Year','Country','Happiness Score', 'Standard Error']].head(4)
+head_2016 = happiness2016[['Country','Happiness Score', 'Year']].head(3)
+
+concat_axis0 = pd.concat([head_2015, head_2016], axis = 0)
+rows = 7
+columns = 4
