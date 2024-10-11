@@ -92,7 +92,7 @@ happiness_means = happiness2015.groupby('Region')['Happiness Score'].mean()
 #Aggregation with Pivot Tables
 #we use the df.pivot_table() method to perform the same aggregation as above.
 pv_happiness = happiness2015.pivot_table(values='Happiness Score', index='Region', aggfunc=np.mean, margins = True) # If margins=True, special All columns and rows will be added with partial group aggregates across the categories on the rows and columns.
-
+#All is the mean of the Happiness Score column in our instance
 ''' this method returns a DataFrame, so we can apply normal DataFrame filtering and methods to the result. For example, let's use the DataFrame.plot() method to create a visualization. Note that we exclude aggfunc below because the mean is the default aggregation function of df.pivot_table() '''
 pv_happiness.plot(kind='barh', title='Mean Happiness Scores by Region', xlim=(0,10), legend=False)
 plt.show()
