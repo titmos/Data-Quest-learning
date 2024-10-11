@@ -61,3 +61,11 @@ print(grouped. size())
 '''   it's often good practice to specify the numeric_only parameter for aggregation methods like mean(), sum(), min(), and max() to avoid TypeErrors. This parameter determines whether to include only numeric columns in the computation. By setting numeric_only=True, we ensure that only numeric columns are considered for the aggregation, avoiding potential errors with non-numeric data. '''
 means = grouped.mean(numeric_only = True)
 ''' You may have noticed that Region appears in a different row than the rest of the column names. Because we grouped the DataFrame by region, the unique values in Region are used as the index. Up until now, we've mostly worked with DataFrames with a numeric index. '''
+
+
+#Aggregating Specific Columns with Groupby
+
+grouped = happiness2015.groupby('Region')
+happy_grouped = grouped['Happiness Score']
+happy_mean = happy_grouped.mean()
+print(happy_mean)
