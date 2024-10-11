@@ -142,3 +142,14 @@ head_2016 = happiness2016[['Country','Happiness Score', 'Year']].head(3)
 concat_axis0 = pd.concat([head_2015, head_2016], axis = 0)
 rows = 7
 columns = 4
+
+
+#Combining Dataframes with Different Shapes Using the Concat Function
+''' Also, notice again the indexes of the original dataframes didn't change. If the indexes aren't meaningful, it can be better to reset them. This is especially true when we create duplicate indexes, because they could cause errors as we perform other data cleaning tasks.
+
+Luckily, the concat function has a parameter, ignore_index, that can be used to clear the existing index and reset it in the result. '''
+
+head_2015 = happiness2015[['Year','Country','Happiness Score', 'Standard Error']].head(4)
+head_2016 = happiness2016[['Country','Happiness Score', 'Year']].head(3)
+
+concat_update_index = pd.concat([head_2015, head_2016], axis = 0, ignore_index = True)
