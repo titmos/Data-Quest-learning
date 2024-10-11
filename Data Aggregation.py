@@ -97,3 +97,18 @@ pv_happiness = happiness2015.pivot_table(values='Happiness Score', index='Region
 pv_happiness.plot(kind='barh', title='Mean Happiness Scores by Region', xlim=(0,10), legend=False)
 plt.show()
 world_mean_happiness = happiness2015['Happiness Score'].mean()
+
+
+#Aggregating Multiple Columns and Functions with Pivot Tables
+
+#The pivot_table method also allows us to aggregate multiple columns and apply multiple functions at once.
+
+#To apply multiple functions, we can pass a list of the functions into the aggfunc parameter: aggfunc=[np.mean, np.min , np.max]
+#Let's compare the results returned by the groupby operation and the pivot_table method.
+gro = happiness2015.groupby('Region')
+grouped = gro[['Happiness Score', 'Family']]
+happy_family_stats = grouped.agg([np.min, np.max, np.mean])
+print(happy_family_stats)
+
+pv_happy_family_stats = happiness2015.pivot_table(['Happiness Score', 'Family' ], 'Region', aggfunc=[np.min, np.max , np.mean], margins=True)
+print(pv_happy_family_stats)
