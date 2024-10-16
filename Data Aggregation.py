@@ -191,3 +191,18 @@ merged = pd.merge(left=three_2015, right=three_2016, on='Country')
 merged_left = pd.merge(left=three_2015, right=three_2016, on='Country', how = 'left')
 
 merged_left_updated = pd.merge(left=three_2016, right=three_2015, on='Country', how = 'left')
+
+
+#Left Joins with the Merge Function
+#Recall that a left join includes all of the rows from the "left" dataframe along with any rows from the "right" dataframe with a common key.
+#Since the Country column was used as the key, only countries that appear in BOTH dataframes have a value in every column.
+
+#In summary, we'd use a left join when we don't want to drop any data from the left dataframe.
+three_2015 = happiness2015[['Country','Happiness Rank','Year']].iloc[2:5]
+three_2016 = happiness2016[['Country','Happiness Rank','Year']].iloc[2:5]
+merged = pd.merge(left=three_2015, right=three_2016, how='left', on='Country')
+merged_updated = pd.merge(left=three_2016, right=three_2015, how = 'left', on='Country')
+#You may have also noticed above that the merge function added a suffix of either _x or _y to columns of the same name to distinguish between them.
+#ativity:: Let's update those suffixes next to make our results easier to read.
+merged_suffixes = pd.merge(left=three_2015, right=three_2016, how = 'left', on='Country', suffixes = ('_2015', '_2016'))
+merged_updated_suffixes = pd.merge(left=three_2016, right=three_2015, how = 'left', on='Country', suffixes = ('_2016', '_2015'))
