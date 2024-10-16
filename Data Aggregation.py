@@ -206,3 +206,17 @@ merged_updated = pd.merge(left=three_2016, right=three_2015, how = 'left', on='C
 #ativity:: Let's update those suffixes next to make our results easier to read.
 merged_suffixes = pd.merge(left=three_2015, right=three_2016, how = 'left', on='Country', suffixes = ('_2015', '_2016'))
 merged_updated_suffixes = pd.merge(left=three_2016, right=three_2015, how = 'left', on='Country', suffixes = ('_2016', '_2015'))
+
+
+#Join on Index with the Merge Function
+#let's look at another way to join dataframes - on the index.
+import pandas as pd
+four_2015 = happiness2015[['Country','Happiness Rank','Year']].iloc[2:6]
+three_2016 = happiness2016[['Country','Happiness Rank','Year']].iloc[2:5]
+merge_index = pd.merge(left = four_2015, right = three_2016, left_index = True, right_index = True, suffixes = ('_2015','_2016'))
+
+#on index using an inner join, so that the result contains only the elements in the key that appear in BOTH dataframes. 
+merge_index_left = pd.merge(left = four_2015, right = three_2016, left_index = True, right_index = True, suffixes = ('_2015','_2016'), how = 'left')
+#class assignment
+columns = 6
+rows = 4
