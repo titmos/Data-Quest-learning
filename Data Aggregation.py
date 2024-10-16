@@ -170,3 +170,24 @@ three_2015 = happiness2015[['Country','Happiness Rank','Year']].iloc[2:5]
 three_2016 = happiness2016[['Country','Happiness Rank','Year']].iloc[2:5]
 #join three_2015 and three_2016 on the Country column
 merged = pd.merge(left = three_2015, right = three_2016, on = 'Country')
+
+
+#Joining on Columns with the Merge Function
+three_2015 = happiness2015[['Country','Happiness Rank','Year']].iloc[2:5]
+three_2016 = happiness2016[['Country','Happiness Rank','Year']].iloc[2:5]
+
+#This way of combining, or joining, data is called an inner join. An inner join returns only the intersection of the keys, or the elements that appear in both dataframes with a common key.
+''' There are actually four different types of joins:
+
+Inner: only includes elements that appear in both dataframes with a common key
+Outer: includes all data from both dataframes
+Left: includes all of the rows from the "left" dataframe along with any rows from the "right" dataframe with a common key; the result retains all columns from both of the original dataframes
+Right: includes all of the rows from the "right" dataframe along with any rows from the "left" dataframe with a common key; the result retains all columns from both of the original dataframes  
+
+If the definition for outer joins sounds familiar, it's because we've already seen examples of outer joins! Recall that when we combined data using the concat function, it kept all of the data from all dataframes, no matter if missing values were created.
+'''
+merged = pd.merge(left=three_2015, right=three_2016, on='Country')
+
+merged_left = pd.merge(left=three_2015, right=three_2016, on='Country', how = 'left')
+
+merged_left_updated = pd.merge(left=three_2016, right=three_2015, on='Country', how = 'left')
