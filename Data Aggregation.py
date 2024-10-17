@@ -220,3 +220,15 @@ merge_index_left = pd.merge(left = four_2015, right = three_2016, left_index = T
 #class assignment
 columns = 6
 rows = 4
+
+
+#lesson Challenge: Combine Data and Create a Visualization
+#Did world happiness increase, decrease, or stay about the same from 2015 to 2017?
+
+happiness2017.rename(columns={'Happiness.Score': 'Happiness Score'}, inplace=True)
+#we need to combine Yearly Happiness table, to group the result by the Year column.
+combined = pd.concat([happiness2015, happiness2016, happiness2017])
+#create a pivot table from the combined dataframe.
+pivot_table_combined = combined.pivot_table(index='Year', values='Happiness Score', aggfunc=np.mean)
+pivot_table_combined.plot(kind = 'barh', title = 'Mean Happiness Scores by Year', xlim = (0, 10))
+plt.show()
