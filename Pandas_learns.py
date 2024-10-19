@@ -485,3 +485,10 @@ laptops.rename({"weight" : "weight_kg"}, axis = 1, inplace = True)
 
 
 laptops.to_csv('/tmp/laptops_cleaned.csv', index=False)
+
+
+##Transforming Data with Pandas
+# we need to manipulate our data into a format that makes it easier to analyze. 
+mapping = {'Economy (GDP per Capita)': 'Economy', 'Health (Life Expectancy)': 'Health', 'Trust (Government Corruption)': 'Trust' }
+#Use the DataFrame.rename() method to change column names to the names specified in the mapping dictionary.
+happiness2015 = happiness2015.rename(mapping, axis = 1)
