@@ -508,3 +508,22 @@ economy_impact_map = happiness2015['Economy'].map(label)
 economy_impact_apply = happiness2015['Economy'].apply(label)
 #to check if the methods produce the same result
 equal = economy_impact_map.equals(economy_impact_apply)
+
+
+#Apply a Function Element-wise Using the Map and Apply Methods Continued
+#In the last exercise, we applied a function to the Economy column using the Series.map() and 
+#Series.apply() methods and confirmed that both methods produce the same results.
+''' Note that these methods don't modify the original series. If we want to work with the new series in the original dataframe, we must either assign the results back to the original column or create a new column. We recommend creating a new column,  
+To create the Economy Impact column(A new column tahts stores the status of each element in the Economy column), map() and apply() iterate through the Economy column and pass each value into the label function. The function evaluates which range the value belongs to and assigns the corresponding value to the element in the new column.
+'''
+def label(element, x):
+    if element > x:
+        return 'High'
+    else:
+        return 'Low'
+''' Since both map and apply can apply functions element-wise to a series, you may be wondering about the difference between them. Let's start by looking at a function with arguments.
+In the label function, we arbitrarily split the values into 'High' and 'Low'. What if instead we allowed that number to be passed into the function as an argument?
+When we try to apply the function to the Economy column with the map method, we get an error:
+'''
+#We learned in the last screen that the Series.map() method doesn't easily handle functions with additional arguments. The Series.apply() method, however, can be used for such functions
+economy_impact_apply = happiness2015['Economy'].apply(label, x = 0.8)
