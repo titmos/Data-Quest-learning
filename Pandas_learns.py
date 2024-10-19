@@ -492,3 +492,19 @@ laptops.to_csv('/tmp/laptops_cleaned.csv', index=False)
 mapping = {'Economy (GDP per Capita)': 'Economy', 'Health (Life Expectancy)': 'Health', 'Trust (Government Corruption)': 'Trust' }
 #Use the DataFrame.rename() method to change column names to the names specified in the mapping dictionary.
 happiness2015 = happiness2015.rename(mapping, axis = 1)
+
+
+#Apply a Function Element-wise Using the Map and Apply Methods
+
+def label(element):
+    if element > 1:
+        return 'High'
+    else:
+        return 'Low'
+#to apply the label function to the Economy column
+economy_impact_map = happiness2015['Economy'].map(label)
+
+# to apply the label function to the Economy column.
+economy_impact_apply = happiness2015['Economy'].apply(label)
+#to check if the methods produce the same result
+equal = economy_impact_map.equals(economy_impact_apply)
