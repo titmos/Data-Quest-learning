@@ -527,3 +527,24 @@ When we try to apply the function to the Economy column with the map method, we 
 '''
 #We learned in the last screen that the Series.map() method doesn't easily handle functions with additional arguments. The Series.apply() method, however, can be used for such functions
 economy_impact_apply = happiness2015['Economy'].apply(label, x = 0.8)
+#Apply a Function Element-wise to Multiple Columns Using Map method
+''' 
+So far, we've transformed just one column at a time. If we wanted to transform more than one column, we could use the Series.map() or Series.apply() method to transform them as follows:
+'''
+def label(element):
+    if element > 1:
+        return 'High'
+    else:
+        return 'Low'
+#The construct below will create new columns and save the process from the label function
+happiness2015['Economy Impact'] = happiness2015['Economy'].apply(label)
+happiness2015['Health Impact'] = happiness2015['Health'].apply(label)
+happiness2015['Family Impact'] = happiness2015['Family'].apply(label)
+
+'''
+However, it would be easier to just apply the same function to all of the factor columns (Economy, Health, Family, Freedom, Generosity, Trust) at once. Fortunately, however, pandas already has a method that can apply functions element-wise to multiple columns at once - the DataFrame.map() method.
+At first it migt look like the same function, but the subtle difference is that now the function is DataFrame.map() instead of Series.map(). 
+This distinction is important because DataFrame.map() applies the function to every element in the DataFrame, whereas Series.map() only works on a single column.
+syntax to work with the DataFrame.map() method:
+DataFrame[columns].map(function_name)
+'''
