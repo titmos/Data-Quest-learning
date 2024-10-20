@@ -548,3 +548,14 @@ This distinction is important because DataFrame.map() applies the function to ev
 syntax to work with the DataFrame.map() method:
 DataFrame[columns].map(function_name)
 '''
+#Apply a Function Element-wise to Multiple Columns Using Map method
+def label(element):
+    if element > 1:
+        return 'High'
+    else:
+        return 'Low'
+economy_apply = happiness2015['Economy'].apply(label)
+#We've already created a list named factors containing the column names for the six factors that contribute to the happiness score.
+factors = ['Economy', 'Family', 'Health', 'Freedom', 'Trust', 'Generosity']
+#Use the DataFrame.map() method to apply the label function to the columns saved in factors in happiness2015
+factors_impact = happiness2015[factors].map(label)
