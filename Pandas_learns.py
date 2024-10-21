@@ -568,3 +568,22 @@ factors_impact = happiness2015[factors].map(label)
 print(factors_impact.apply(pd.value_counts))
 #When we applied the pd.value_counts function to factors_impact, it calculated the value counts for the first column, Economy, then the second column, Family, so on
 # This is only possible because the pd.value_counts function operates on a series. If we tried to use the df.apply() method to apply a function that works element-wise to multiple columns, we'd get an error:
+
+
+''' 
+You can also use the apply() method on a dataframe, but the DataFrame.apply() method has different capabilities. Instead of applying functions element-wise, the df.apply() method applies functions along an axis, either column-wise or row-wise. When we create a function to use with df.apply(), we set it up to accept a series, most commonly a column.
+
+Let's use the df.apply() method to calculate the number of 'High' and 'Low' values in each column of the result from the last exercise, factors_impact. In order to do so, we'll apply the pd.value_counts function to all of the columns in the dataframe:
+
+factors_impact.apply(pd.value_counts)
+'''
+#Create a function that calculates the percentage of 'High' and 'Low' values in each column
+def v_counts(col):
+        num = col.value_counts()
+        print('num ',num)
+        den = col.size
+        print(den)
+        return num/den 
+#Use the df.apply() method to apply the v_counts function to all of the columns in factors_impact
+v_counts_pct = factors_impact.apply(v_counts)
+print(v_counts_pct)
