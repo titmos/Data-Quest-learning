@@ -570,6 +570,7 @@ print(factors_impact.apply(pd.value_counts))
 # This is only possible because the pd.value_counts function operates on a series. If we tried to use the df.apply() method to apply a function that works element-wise to multiple columns, we'd get an error:
 
 
+#Apply Functions along an Axis using the Apply Method
 ''' 
 You can also use the apply() method on a dataframe, but the DataFrame.apply() method has different capabilities. Instead of applying functions element-wise, the df.apply() method applies functions along an axis, either column-wise or row-wise. When we create a function to use with df.apply(), we set it up to accept a series, most commonly a column.
 
