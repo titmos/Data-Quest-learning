@@ -591,3 +591,14 @@ print(v_counts_pct)
 '''
 In general, we should only use the apply() method when a vectorized function does not exist. Recall that pandas uses vectorization, the process of applying operations to whole series at once, to optimize performance. When we use the apply() method, we're actually looping through rows, so a vectorized method can perform an equivalent task faster than the apply() method.
 '''
+
+
+#Apply Functions along an Axis using the Apply Method Continued
+factors = ['Economy', 'Family', 'Health', 'Freedom', 'Trust', 'Generosity', 'Dystopia Residual']
+sum = happiness2015[factors].sum(axis = 1)
+#Findings! The Values we obtained in sum does not equal to Hapiness score directly, though it does by some rounding
+#So we create a percentage of it to see how close they are
+def percentages(col):
+    div = col/happiness2015['Happiness Score']
+    return div *100
+factor_percentages = happiness2015[factors].apply(percentages)
