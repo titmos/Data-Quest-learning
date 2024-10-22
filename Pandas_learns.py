@@ -635,3 +635,17 @@ merged = pd.merge(left = happiness2015, right = world_dev, how = 'left', left_on
 #rename the SourceOfMostRecentIncomeAndExpenditureData column in merged to IESurvey (because we don't want to keep typing that long name!)
 merged = merged.rename(col_renaming, axis = 1)
 print(merged.info())
+
+
+#Using Apply to Transform Strings
+#Suppose we wanted to extract the unit of currency without the leading nationality. For example, instead of "Danish krone" or "Norwegian krone", we just needed "krone".
+
+#Write a function called extract_last_word that extract the last word in a string 
+def extract_last_word(element):
+    element = str(element)
+    element_list = element.split()
+    return element_list[-1]
+#Apply the function created on a series/column
+merged['Currency Apply'] = merged['CurrencyUnit'].apply(extract_last_word)
+
+print(merged['Currency Apply'].head())
