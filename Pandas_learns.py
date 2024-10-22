@@ -588,3 +588,6 @@ def v_counts(col):
 #Use the df.apply() method to apply the v_counts function to all of the columns in factors_impact
 v_counts_pct = factors_impact.apply(v_counts)
 print(v_counts_pct)
+'''
+In general, we should only use the apply() method when a vectorized function does not exist. Recall that pandas uses vectorization, the process of applying operations to whole series at once, to optimize performance. When we use the apply() method, we're actually looping through rows, so a vectorized method can perform an equivalent task faster than the apply() method.
+'''
