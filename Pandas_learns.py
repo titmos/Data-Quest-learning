@@ -611,3 +611,4 @@ melt = pd.melt(happiness2015, id_vars = main_cols, value_vars = factors)
 #we use the melt function to reshape a Dataframe so that the values reside in the same column variable:
 melt['Percentage'] = round(melt['value']/melt['Happiness Score'] * 100, 2)
 ''' The melt function moved the values in the seven columns - Economy, Health, Family, Freedom, Generosity, Trust, and Dystopia Residual - to the same column, which meant we could transform them all at once.'''
+#now the data is in a format that makes it easier to aggregate
