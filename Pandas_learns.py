@@ -624,3 +624,14 @@ pv_melt = melt.pivot_table(index = 'variable', values = 'value')
 
 pv_melt.plot(kind ='pie', title='Challenge: Aggregate the Data and Create a Visualization', y = 'value', legend = False)
 plt.show()
+
+
+#Working with Strings in Pandas
+world_dev = pd.read_csv("World_dev.csv")
+col_renaming = {'SourceOfMostRecentIncomeAndExpenditureData': 'IESurvey'}
+#Use the pd.merge() function to combine happiness2015 and world_dev
+merged = pd.merge(left = happiness2015, right = world_dev, how = 'left', left_on = 'Country', right_on = 'ShortName')
+
+#rename the SourceOfMostRecentIncomeAndExpenditureData column in merged to IESurvey (because we don't want to keep typing that long name!)
+merged = merged.rename(col_renaming, axis = 1)
+print(merged.info())
