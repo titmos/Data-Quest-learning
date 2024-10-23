@@ -661,3 +661,13 @@ print(merged['Currency Vectorized'].head())
 
 #to confirm if there are any missing values in the column:
 merged['CurrencyUnit'].isnull().sum()
+
+
+#Exploring Missing Values with Vectorized String Methods
+
+#Suppose we wanted to compute the length of each string in the CurrencyUnit column. If we use the Series.apply() method, what happens to the missing values in the column?
+
+#Use the Series.str.len() method to return the length of each element in the CurrencyUnit column.
+lengths = merged['CurrencyUnit'].str.len()
+value_counts = lengths.value_counts(dropna = False)
+#Since value_counts contains NaNs, it means the Series.str.len() method excluded them and didn't treat them as strings.
