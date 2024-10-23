@@ -649,3 +649,12 @@ def extract_last_word(element):
 merged['Currency Apply'] = merged['CurrencyUnit'].apply(extract_last_word)
 
 print(merged['Currency Apply'].head())
+
+
+#Vectorized String Methods Overview
+#we could've split each element in the CurrencyUnit column into a list of strings with the Series.str.split() method, the vectorized equivalent of Python's string.split() method
+
+#Use the Series.str.split() method to split the CurrencyUnit column into a list of words and then use the Series.str.get() method to select just the last word. Assign the result to merged['Currency Vectorized']
+merged['Currency Vectorized'] = merged['CurrencyUnit'].str.split().str.get(-1)
+
+print(merged['Currency Vectorized'].head())
