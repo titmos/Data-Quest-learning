@@ -658,3 +658,6 @@ print(merged['Currency Apply'].head())
 merged['Currency Vectorized'] = merged['CurrencyUnit'].str.split().str.get(-1)
 
 print(merged['Currency Vectorized'].head())
+
+#to confirm if there are any missing values in the column:
+merged['CurrencyUnit'].isnull().sum()
