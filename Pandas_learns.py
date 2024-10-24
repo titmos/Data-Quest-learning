@@ -671,3 +671,12 @@ merged['CurrencyUnit'].isnull().sum()
 lengths = merged['CurrencyUnit'].str.len()
 value_counts = lengths.value_counts(dropna = False)
 #Since value_counts contains NaNs, it means the Series.str.len() method excluded them and didn't treat them as strings.
+
+
+#Finding Specific Words in Strings
+
+pattern = r"[Nn]ational accounts"
+#We've already saved the regex to a variable called pattern. The brackets, [], indicate that either "national accounts" or "National accounts" should produce a match.
+#to search for pattern in the SpecialNotes column. 
+national_accounts = merged['SpecialNotes'].str.contains(pattern)
+print(national_accounts.head())
