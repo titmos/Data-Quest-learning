@@ -711,3 +711,7 @@ pattern = r"[1-6][a-z][a-z]"
 If we have a pattern that repeats, we can also use curly brackets { and } to indicate the number of times it repeats
 pattern = r"[1-6][a-z][a-z]" = r"[1-6][a-z]{2}"
 '''
+#Create a regular expression that will match years and assign it to the variable pattern
+pattern = r"([1-2][0-9][0-9][0-9])"
+#Use pattern and the Series.str.extract() method to extract years from the SpecialNotes column.
+years = merged['SpecialNotes'].str.extract(pattern)
