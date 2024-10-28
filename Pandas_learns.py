@@ -712,6 +712,6 @@ If we have a pattern that repeats, we can also use curly brackets { and } to ind
 pattern = r"[1-6][a-z][a-z]" = r"[1-6][a-z]{2}"
 '''
 #Create a regular expression that will match years and assign it to the variable pattern
-pattern = r"([1-2][0-9][0-9][0-9])"
+pattern = r"([1-2][0-9][0-9][0-9])" #we enclosed our regular expression in parentheses, indicating that only the character pattern matched should be extracted and returned in a series.
 #Use pattern and the Series.str.extract() method to extract years from the SpecialNotes column.
 years = merged['SpecialNotes'].str.extract(pattern)
