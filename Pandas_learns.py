@@ -692,3 +692,22 @@ x = national_accounts.value_counts(dropna=False)
 # The fix for the error is to pass in the na parameter in str.contains and set it to False
 merged_national_accounts = merged[national_accounts]
 print(merged_national_accounts.head())
+
+
+#Extracting Substrings from a Series
+
+'''
+With regular expressions, we use the following syntax to indicate a character could be a range of numbers pattern = r"[0-9]"
+
+range of letters  
+#lowercase letters
+pattern = r"[a-z]"
+#uppercase letters
+pattern = r"[A-Z]"  
+We could also make these ranges more restrictive.
+if we wanted to find a three character substring in a column that starts with a number between 1 and 6 and ends with two letters of any kind, we could use
+pattern = r"[1-6][a-z][a-z]"
+
+If we have a pattern that repeats, we can also use curly brackets { and } to indicate the number of times it repeats
+pattern = r"[1-6][a-z][a-z]" = r"[1-6][a-z]{2}"
+'''
