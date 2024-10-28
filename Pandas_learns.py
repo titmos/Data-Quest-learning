@@ -716,3 +716,10 @@ pattern = r"([1-2][0-9][0-9][0-9])" #we enclosed our regular expression in paren
 #We call this a capturing group.
 #Use pattern and the Series.str.extract() method to extract years from the SpecialNotes column.
 years = merged['SpecialNotes'].str.extract(pattern)
+pattern = r"(?P<Years>[1-2][0-9]{3})"
+
+# the Series.str.extract() method will only extract the first match of the pattern. If we wanted to extract all of the matches, we can use the Series.str.extractall()
+#We make the output easier to read by using the df.set_index() method to set the Country column as the index.
+years = merged['IESurvey'].str.extractall(pattern)
+value_counts = years.value_counts()
+print(value_counts)
