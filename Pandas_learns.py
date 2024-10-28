@@ -723,3 +723,18 @@ pattern = r"(?P<Years>[1-2][0-9]{3})"
 years = merged['IESurvey'].str.extractall(pattern)
 value_counts = years.value_counts()
 print(value_counts)
+
+
+
+#When we tried to extract all of the years from the IESurvey column using the extractall method in the last exercise, we were unsuccessful because some of our years had the following format: 2018/19
+#Because our regular expression only accounted for the pattern highlighted below, we created a dataframe with just the first year in each row:
+#Note that we also added a question mark, ?, after each of the two new groups to indicate that a match for those groups is optional.
+#This allows us to extract years listed in the yyyy format AND the yyyy/yy format at once.
+#Notice that we didn't enclose /? in parentheses so that the resulting dataframe will only contain a First_Year and Second_Year column.
+pattern = r"(?P<First_Year>[1-2][0-9]{3})/?(?P<Second_Year>[0-9]{2})?"
+
+years = merged['IESurvey'].str.extractall(pattern)
+#Use vectorized slicing to extract the first two numbers from the First_Year
+first_two_year = years['First_Year'].str[:2]
+#Add first_two_year to the Second_Year column in years, so that Second_Year contains the full year (ex: "2000"). Assign the result to years['Second_Year']
+years['Second_Year'] = first_two_year + years['Second_Year']
