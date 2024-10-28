@@ -680,3 +680,15 @@ pattern = r"[Nn]ational accounts"
 #to search for pattern in the SpecialNotes column. 
 national_accounts = merged['SpecialNotes'].str.contains(pattern)
 print(national_accounts.head())
+
+
+#Finding Specific Words in Strings Continued
+pattern = r"[Nn]ational accounts"
+
+national_accounts = merged['SpecialNotes'].str.contains(pattern, na = False)
+x = national_accounts.value_counts(dropna=False)
+#Now, we should be able to use boolean indexing to return only the rows that contain "national accounts" or "National accounts"
+# we got an error now because of the NaN values! One way we could fix this is to change the NaN values to False in national_accounts.
+# The fix for the error is to pass in the na parameter in str.contains and set it to False
+merged_national_accounts = merged[national_accounts]
+print(merged_national_accounts.head())
