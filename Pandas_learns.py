@@ -785,3 +785,4 @@ shape_2017 = happiness2017.shape
 missing_2016 = happiness2016.isnull().sum()
 
 missing_2017 = happiness2017.isnull().sum()
+#It's good to check for missing values before transforming data to make sure we don't unintentionally introduce missing values.
