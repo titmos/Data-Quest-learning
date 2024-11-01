@@ -814,3 +814,17 @@ Series.str.replace()	Replaces a regex or string in the Series with another strin
 Series.str.cat()	Concatenates strings in a Series.
 Series.str.extract()	Extracts substrings from the Series matching a regex pattern.
 '''
+#Correcting Data Cleaning Errors that Result in Missing Values
+#Sample
+happiness2017.columns = happiness2017.columns.str.replace('.', ' ').str.replace('\s+', ' ', regex=True).str.strip().str.upper()
+
+''' Update the columns names forhappiness2015 and happiness2016 to match the formatting of the column names in happiness2017. Use the following criteria to rename the columns:
+All letters should be uppercase.
+There should be only one space between words. #'\s+', ' '
+There should be no parentheses in column names. #[()]',''
+Take note to replace the parentheses with empty string. '''
+happiness2015.columns = happiness2015.columns.str.replace('.', ' ').str.replace('[()]','', regex = True).str.replace('\s+', ' ', regex=True).str.strip().str.upper()
+
+happiness2016.columns = happiness2016.columns.str.replace('.', ' ').str.replace('[()]','', regex = True).str.replace('\s+', ' ', regex=True).str.strip().str.upper()
+happiness2016.info() #check
+
