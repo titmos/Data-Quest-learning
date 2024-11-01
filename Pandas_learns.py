@@ -827,4 +827,7 @@ happiness2015.columns = happiness2015.columns.str.replace('.', ' ').str.replace(
 
 happiness2016.columns = happiness2016.columns.str.replace('.', ' ').str.replace('[()]','', regex = True).str.replace('\s+', ' ', regex=True).str.strip().str.upper()
 happiness2016.info() #check
+combined = pd.concat([happiness2015, happiness2016, happiness2017], ignore_index=True) #combine the DFs
 
+missing = combined.isnull().sum() #to check for missing values
+print(missing)
