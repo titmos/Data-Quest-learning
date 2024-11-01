@@ -738,3 +738,31 @@ years = merged['IESurvey'].str.extractall(pattern)
 first_two_year = years['First_Year'].str[:2]
 #Add first_two_year to the Second_Year column in years, so that Second_Year contains the full year (ex: "2000"). Assign the result to years['Second_Year']
 years['Second_Year'] = first_two_year + years['Second_Year']
+
+
+#Working With Missing And Duplicate data
+# Introduction
+
+'''
+Missing or duplicate data may exist in a data set for a number of different reasons. Sometimes, missing or duplicate data is introduced as we perform cleaning and transformation tasks such as:
+
+Combining data
+Reindexing data
+Reshaping data
+Other times, it exists in the original data set for reasons such as:
+
+User input error
+Data storage or conversion issues
+
+In the Pandas Fundamentals course, we learned that there are various ways to handle missing data:
+
+Remove any rows that have missing values.
+Remove any columns that have missing values.
+Fill the missing values with some other value.
+Leave the missing values as is.
+'''
+
+#Let's start by gathering information about the dataframes.
+shape_2015 = happiness2015.shape
+shape_2016 = happiness2016.shape
+shape_2017 = happiness2017.shape
