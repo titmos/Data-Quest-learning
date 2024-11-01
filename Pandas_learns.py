@@ -779,3 +779,9 @@ shape_2017 = happiness2017.shape
 #missing_2015 = happiness2015[missing]
 # it's easier to get a summary of the missing values 
 #print(happiness2015.isnull().sum())
+
+#confirm the number of missing values
+
+missing_2016 = happiness2016.isnull().sum()
+
+missing_2017 = happiness2017.isnull().sum()
