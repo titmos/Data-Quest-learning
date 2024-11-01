@@ -794,3 +794,11 @@ Use data from additional sources to fill missing values.
 Drop row/column.
 Fill missing values with reasonable estimates computed from the available data.
 '''
+
+#ANOTHER METHOD TO RENAMING COLUMNS
+# I have data frames with column names (coming from .csv files) containing ( and ) and I'd like to replace them with _
+df.columns = df.columns.str.replace("[()]", "_", regex=True)
+#sample df 
+df = pd.DataFrame({'(A)':[1,2,3],
+                   '(B)':[4,5,6],
+                   'C)':[7,8,9]})
