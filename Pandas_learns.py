@@ -766,3 +766,16 @@ Leave the missing values as is.
 shape_2015 = happiness2015.shape
 shape_2016 = happiness2016.shape
 shape_2017 = happiness2017.shape
+
+#Identifying Missing Values
+# it's good to note that pandas will not automatically identify values such as n/a, -, or -- as NaN or None, but they may also indicate data is missing.
+
+#If you know that your missing values are all marked by a string 'none', then do this:
+
+#moto = pd.read_csv("test.csv", na_values=['NaN'])
+#Once we ensure that all missing values were read in correctly, we can use the Series.isnull() method to identify rows with missing values:
+
+#missing = happiness2015['Happiness Score'].isnull()
+#missing_2015 = happiness2015[missing]
+# it's easier to get a summary of the missing values 
+#print(happiness2015.isnull().sum())
