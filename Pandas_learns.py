@@ -831,3 +831,23 @@ combined = pd.concat([happiness2015, happiness2016, happiness2017], ignore_index
 
 missing = combined.isnull().sum() #to check for missing values
 print(missing)
+
+#Visualizing Missing Data
+
+'''
+We can learn more about where these missing values are located by visualizing them with a heatmap, a graphical representation of our data in which values are represented as colors. We'll use the seaborn library to create the heatmap.
+
+Note below that we first reset the index to be the YEAR column so that we'll be able to see the corresponding year on the left side of the heatmap:
+import seaborn as sns
+combined_updated = combined.set_index('YEAR')
+sns.heatmap(combined_updated.isnull(), cbar=False)
+plt.show()
+
+No values are missing in the COUNTRY column.
+There are some rows in the 2015, 2016, and 2017 data with missing values in all columns EXCEPT the COUNTRY column.
+Some columns only have data populated for one year.
+It looks like the REGION data is missing for the year 2017.
+'''
+#Confirm that the REGION column is missing from the 2017 data. 
+regions_2017 = combined['REGION'][combined['YEAR'] == 2017]
+missing = regions_2017.isnull().sum()
