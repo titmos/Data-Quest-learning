@@ -802,3 +802,15 @@ df.columns = df.columns.str.replace("[()]", "_", regex=True)
 df = pd.DataFrame({'(A)':[1,2,3],
                    '(B)':[4,5,6],
                    'C)':[7,8,9]})
+
+'''
+As a reminder, below is a list of common string methods you can use to clean the columns:
+Series.str.split()	Splits each element in the Series.
+Series.str.strip()	Strips whitespace from each string in the Series.
+Series.str.lower()	Converts strings in the Series to lowercase.
+Series.str.upper()	Converts strings in the Series to uppercase.
+Series.str.get()	Retrieves the ith element of each element in the Series.
+Series.str.replace()	Replaces a regex or string in the Series with another string.
+Series.str.cat()	Concatenates strings in a Series.
+Series.str.extract()	Extracts substrings from the Series matching a regex pattern.
+'''
