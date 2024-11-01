@@ -786,3 +786,11 @@ missing_2016 = happiness2016.isnull().sum()
 
 missing_2017 = happiness2017.isnull().sum()
 #It's good to check for missing values before transforming data to make sure we don't unintentionally introduce missing values.
+
+##DATA CLEANING PROCESS
+'''
+Check for errors in data cleaning/transformation.
+Use data from additional sources to fill missing values.
+Drop row/column.
+Fill missing values with reasonable estimates computed from the available data.
+'''
