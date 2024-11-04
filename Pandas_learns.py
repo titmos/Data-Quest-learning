@@ -872,3 +872,12 @@ combined = combined.drop('REGION_x', axis = 1)
 missing = combined.isnull().sum()
 #Create a dataframe containing all of the countries and corresponding regions from the happiness2015
 regions = happiness2015[['COUNTRY', 'REGION']] #
+
+
+# Identifying Duplicates Values
+#DataFrame.duplicated() method to check for duplicate values. If no parameters are specified, the method will check for any rows in which all columns have the same values.
+#Standardize the capitalization so that all the values in the COUNTRY column in combined are uppercase
+combined['COUNTRY'] = combined['COUNTRY'].str.upper()
+#identify any rows that have the same value in the COUNTRY and YEAR columns.
+dups = combined.duplicated(['COUNTRY', 'YEAR'])
+combined_dups = combined[dups]
