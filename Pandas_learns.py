@@ -892,3 +892,35 @@ df.drop_duplicates() method will define duplicates as rows in which all columns 
 It's also important to note that by default, the drop_duplicates() method will only keep the first duplicate row. To keep the last duplicate row, set the keep parameter to 'last'. Sometimes, this will mean sorting the dataframe before dropping the duplicate rows.
 '''
 combined = combined.drop_duplicates(['COUNTRY', 'YEAR'])
+
+
+#Handle Missing Values by Dropping Columns
+
+'''
+Many of the methods in pandas are designed to exclude missing values without removing them, so at this point, we could leave the rest of the missing values as is, depending on the question we're trying to answer.
+However, leaving missing values in the dataframe could cause issues with other transformation tasks and change the distribution of our data set. Also note that missing data has to be dropped or replaced to work with machine learning algorithms, so if you're interested in continuing in the data science path, it's important to know how to handle them.
+Next, we'll consider dropping columns with missing data:
+
+Check for errors in data cleaning/transformation.
+Use data from additional sources to fill missing values.
+Drop row/column.
+Fill missing values with reasonable estimates computed from the available data.
+
+When deciding if you should drop a row or column, carefully consider whether you'll lose information that could alter your analysis. Instead of just saying, "If x percentage of the data is missing, we'll drop it.", it's better to also ask the following questions:
+
+Is the missing data needed to accomplish our end goal?
+How will removing or replacing the missing values affect our analysis?
+
+To answer the first question, let's establish our end goal:
+
+End Goal: We want to analyze happiness scores and the factors that contribute to happiness scores by year and region.
+Since missing values make up more than half of the following columns and we don't need them to accomplish our end goal, we'll drop them:
+
+We'll use the DataFrame.drop() method to drop them next.
+#We checked by: 
+print(combined.isnull().sum())
+'''
+columns_to_drop = ['LOWER CONFIDENCE INTERVAL', 'STANDARD ERROR', 'UPPER CONFIDENCE INTERVAL', 'WHISKER HIGH', 'WHISKER LOW']
+
+combined = combined.drop(columns_to_drop, axis = 1) #drop the columns in columns_to_drop
+missing = combined.isnull().sum() #calculate the number of missing values for each column
