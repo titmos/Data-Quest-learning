@@ -881,3 +881,14 @@ combined['COUNTRY'] = combined['COUNTRY'].str.upper()
 #identify any rows that have the same value in the COUNTRY and YEAR columns.
 dups = combined.duplicated(['COUNTRY', 'YEAR'])
 combined_dups = combined[dups]
+
+
+# Correcting Duplicates Values
+
+combined['COUNTRY'] = combined['COUNTRY'].str.upper()
+
+'''
+df.drop_duplicates() method will define duplicates as rows in which all columns have the same values. 
+It's also important to note that by default, the drop_duplicates() method will only keep the first duplicate row. To keep the last duplicate row, set the keep parameter to 'last'. Sometimes, this will mean sorting the dataframe before dropping the duplicate rows.
+'''
+combined = combined.drop_duplicates(['COUNTRY', 'YEAR'])
