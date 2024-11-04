@@ -865,9 +865,10 @@ Fill missing values with reasonable estimates computed from the available data.
 Recall once more that each year contains the same countries. Since the regions are fixed values - the region a country was assigned to in 2015 or 2016 won't change - we should be able to assign the 2015 or 2016 region to the 2017 row.
 '''
 #assign the REGION in the dataframe above to the corresponding country in combined
+regions = happiness2015[['COUNTRY', 'REGION']] #
 combined = pd.merge(left = combined, right = regions, on = 'COUNTRY', how = 'left')
 #We'll drop REGION_x to eliminate confusion.
 combined = combined.drop('REGION_x', axis = 1)
 missing = combined.isnull().sum()
 #Create a dataframe containing all of the countries and corresponding regions from the happiness2015
-region_n = happiness2015[['COUNTRY', 'REGION']]
+regions = happiness2015[['COUNTRY', 'REGION']] #
