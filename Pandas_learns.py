@@ -851,3 +851,23 @@ It looks like the REGION data is missing for the year 2017.
 #Confirm that the REGION column is missing from the 2017 data. 
 regions_2017 = combined['REGION'][combined['YEAR'] == 2017]
 missing = regions_2017.isnull().sum()
+
+
+#Using Data From Additional Sources to Fill in Missing Values
+'''
+Before we drop or replace any values, let's first see if there's a way we can use other available data to correct the values.
+
+Check for errors in data cleaning/transformation.
+Use data from additional sources to fill missing values.
+Drop row/column.
+Fill missing values with reasonable estimates computed from the available data.
+
+Recall once more that each year contains the same countries. Since the regions are fixed values - the region a country was assigned to in 2015 or 2016 won't change - we should be able to assign the 2015 or 2016 region to the 2017 row.
+'''
+#assign the REGION in the dataframe above to the corresponding country in combined
+combined = pd.merge(left = combined, right = regions, on = 'COUNTRY', how = 'left')
+#We'll drop REGION_x to eliminate confusion.
+combined = combined.drop('REGION_x', axis = 1)
+missing = combined.isnull().sum()
+#Create a dataframe containing all of the countries and corresponding regions from the happiness2015
+region_n = happiness2015[['COUNTRY', 'REGION']]
