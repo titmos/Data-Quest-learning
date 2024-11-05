@@ -924,3 +924,14 @@ columns_to_drop = ['LOWER CONFIDENCE INTERVAL', 'STANDARD ERROR', 'UPPER CONFIDE
 
 combined = combined.drop(columns_to_drop, axis = 1) #drop the columns in columns_to_drop
 missing = combined.isnull().sum() #calculate the number of missing values for each column
+
+
+#Handle Missing Values by Dropping Columns Continued
+'''
+as you start working with bigger datasets, it can sometimes be tedious to create a long list of column names to drop. Instead we can use the DataFrame.dropna() method to complete the same task.
+By default, the dropna() method will drop rows with any missing values. To drop columns, we can set the axis parameter equal to 1
+However, this would result in dropping columns with any missing values - we only want to drop certain columns. Instead, we can also use the thresh parameter to only drop columns if they contain below a certain number of non-null values.
+So far, we've used the df.isnull() method to confirm the number of missing values in each column. To confirm the number of values that are NOT missing, we can use the DataFrame.notnull()method
+'''
+combined = combined.dropna(thresh = 159, axis = 1)  #drop all columns in combined with 159 or less non null values
+missing = combined.isnull().sum()
