@@ -942,3 +942,12 @@ To answer this question, let's visualize the missing data once more. Note below 
 sorted = combined.set_index('REGION').sort_values(['REGION', 'HAPPINESS SCORE'])
 sns.heatmap(sorted.isnull(), cbar=False)
 plt.show()
+
+#Handling Missing Values with Imputation
+'''
+First, let's build some intuition around this technique by analyzing how replacing missing values with the mean affects the distribution of the data. In order to do so, we'll use the Series.fillna() method to replace the missing values with the mean.
+'''
+happiness_mean = combined['HAPPINESS SCORE'].mean()
+#replace all the missing values in the HAPPINESS SCORE column with happiness_mean
+combined['HAPPINESS SCORE UPDATED'] = combined['HAPPINESS SCORE'].fillna(happiness_mean)
+print(combined['HAPPINESS SCORE UPDATED'].mean())
