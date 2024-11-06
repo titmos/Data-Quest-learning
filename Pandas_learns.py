@@ -951,3 +951,16 @@ happiness_mean = combined['HAPPINESS SCORE'].mean()
 #replace all the missing values in the HAPPINESS SCORE column with happiness_mean
 combined['HAPPINESS SCORE UPDATED'] = combined['HAPPINESS SCORE'].fillna(happiness_mean)
 print(combined['HAPPINESS SCORE UPDATED'].mean())
+
+#Dropping Rows Approach
+#If we were to plot the distributions before and after replacing the missing values with the mean, we'd see that the shape of the distribution changes as more values cluster around the mean.
+#If the missing values lie at extremes, the mean won't be a good estimate for them.
+'''
+As a reminder, the All row in the table above represents the mean happiness score for the whole world - the value that we used to replace our missing values. We can see that the world mean happiness score, 5.370728, is over 1 point higher than the mean happiness score for the Sub-Saharan Africa region, 4.150957.
+
+Also, if we think about the reasons why a country may not have participated in the happiness survey - war, natural disaster, etc - many of them would likely result in a lower happiness score than even the region's mean. We'll conclude that the mean for the whole world wouldn't be a good estimate for them.
+
+As a result, we'll decide that of these two options, it's better to drop the rows with missing values. Let's do that next.
+'''
+combined = combined.dropna()
+missing = combined.isnull().sum()
