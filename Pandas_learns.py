@@ -935,3 +935,10 @@ So far, we've used the df.isnull() method to confirm the number of missing value
 '''
 combined = combined.dropna(thresh = 159, axis = 1)  #drop all columns in combined with 159 or less non null values
 missing = combined.isnull().sum()
+
+#Question: Will dropping missing values cause us to lose valuable information in other columns?
+
+To answer this question, let's visualize the missing data once more. Note below that before we create the heatmap, we first set the index of combined to the REGION column and sort the values:
+sorted = combined.set_index('REGION').sort_values(['REGION', 'HAPPINESS SCORE'])
+sns.heatmap(sorted.isnull(), cbar=False)
+plt.show()
