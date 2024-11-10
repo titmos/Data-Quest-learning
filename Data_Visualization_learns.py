@@ -267,7 +267,7 @@ bike_sharing = pd.read_csv('day.csv')
 bike_sharing['dteday'] = pd.to_datetime(bike_sharing['dteday'])
 
 #Generate a grouped frequency table with 10 intervals for the registered column
-registered_freq = bike_sharing['registered'].value_counts(bins=10).sort_index()
+registered_freq = bike_sharing['registered'].value_counts(bins=10).sort_index() #normalize = True - this parametetr of Valu_counts uses proportion to display the counts, for percentage we multiply by 100
 
 ##Generate a grouped frequency table with 10 intervals for the casual column
 casual_freq = bike_sharing['casual'].value_counts(bins=10).sort_index()
