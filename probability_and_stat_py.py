@@ -27,4 +27,4 @@ for item in range (100):
 #Display the discrepancy between the parameter of interest (the mean of the PTS column) and the statistics obtained in the previous step
 plt.scatter(range(1, 101), sample_means)
 plt.axhline(population_mean)
-plt.show()
+plt.show() #On the scatter plot from the previous screen, we can see that the sample means vary a lot around the population mean.
