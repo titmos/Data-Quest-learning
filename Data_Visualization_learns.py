@@ -269,6 +269,7 @@ bike_sharing['dteday'] = pd.to_datetime(bike_sharing['dteday'])
 #Generate a grouped frequency table with 10 intervals for the registered column
 registered_freq = bike_sharing['registered'].value_counts(bins=10).sort_index() #normalize = True - this parametetr of Valu_counts uses proportion to display the counts, for percentage we multiply by 100
 #The ( character in the bin value_count output indicates that the beginning of the interval isn't included, and the ] indicates that the endpoint is included.
+#For example, (22.0, 32.0] means that 22.0 isn't included, while 32.0 is
 ##Generate a grouped frequency table with 10 intervals for the casual column
 casual_freq = bike_sharing['casual'].value_counts(bins=10).sort_index()
 
