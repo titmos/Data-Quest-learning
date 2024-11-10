@@ -28,3 +28,4 @@ for item in range (100):
 plt.scatter(range(1, 101), sample_means)
 plt.axhline(population_mean)
 plt.show() #On the scatter plot from the previous screen, we can see that the sample means vary a lot around the population mean.
+# there's a good chance we get a sample that isn't representative of the population
