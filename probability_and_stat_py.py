@@ -50,3 +50,27 @@ for stratum, position in [(stratum_G, 'G'), (stratum_F, 'F'), (stratum_C, 'C'), 
     points_per_position[position] = sample.mean() #appends mean of each strata tp the dictionary by its position 
     
 position_most_points = max(points_per_position, key = points_per_position.get)#To get the strata with Max points 
+
+
+#Proportional Stratified Sampling
+
+print(round(wnba['Games Played'].value_counts(bins = 3))) #Check Proportionality
+
+#stratifying the DF by proportion
+stratum_1 = wnba[wnba['Games Played'] <= 12]
+stratum_2 = wnba[(wnba['Games Played'] > 12) & (wnba['Games Played'] <= 22)]
+stratum_3 = wnba[wnba['Games Played'] > 22]
+
+proportional_sampling_means = []
+#performing the sampling based on the strata
+for item in range(100):
+    sample_under_12 = stratum_1['PTS'].sample(1, random_state = item)
+    sample_btw_13_22 = stratum_2['PTS'].sample(2, random_state = item)
+    sample_over_23 = stratum_3['PTS'].sample(7, random_state = item)
+    #join the stratas and find the mean
+    final_sample = pd.concat([sample_under_12, sample_btw_13_22, sample_over_23])
+    proportional_sampling_means.append(final_sample.mean())
+
+plt.scatter(range(1,101), proportional_sampling_means)
+plt.axhline(wnba['PTS'].mean())
+plt.show()
