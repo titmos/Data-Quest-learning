@@ -74,3 +74,23 @@ for item in range(100):
 plt.scatter(range(1,101), proportional_sampling_means)
 plt.axhline(wnba['PTS'].mean())
 plt.show()
+
+
+# Cluster Sampling
+
+print(wnba['Team'].unique()) #View disitinct teams in the Dataset
+
+clusters = pd.Series(wnba['Team'].unique()).sample(4, random_state = 0)#Randomly picks 4 clusters from the unique teams available
+
+sample = pd.DataFrame()#creates an empty DataFrame
+
+for cluster in clusters:
+    cluster_data = wnba[wnba['Team'] == cluster]
+    sample = pd.concat([sample, cluster_data]) #appends each cluster data to the DF 
+    #the above automatically separates the clusters from the main wnba DataFrame
+
+#the construct blow computes the Sampling error (parameter - statistic)    
+sampling_error_height = wnba['Height'].mean() - sample['Height'].mean()
+sampling_error_age = wnba['Age'].mean() - sample['Age'].mean()
+sampling_error_BMI = wnba['BMI'].mean() - sample['BMI'].mean()
+sampling_error_points = wnba['PTS'].mean() - sample['PTS'].mean()
