@@ -1,4 +1,3 @@
-
 #Sampling Error
 
 import pandas as pd
