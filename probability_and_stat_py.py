@@ -116,3 +116,14 @@ print(wnba['Height'].value_counts().sort_index())
 #It's slightly faster though to use Series.value_counts() with the normalize parameter set to True 
 print(wnba['Pos'].value_counts(normalize = True))
 #To find percentages, we just have to multiply the proportions by 100:
+
+#Proportions and percentages
+
+print(wnba['Age'].value_counts(normalize = True))
+draft = wnba['Age'].value_counts(normalize = True).sort_index()#
+
+proportion_25 = draft[25] #proportion of players are 25 years old
+percentage_30 = draft[30] * 100 #percentage of players are 30 years old
+#Note the need to sort the index for the loc to be effective, Hence the need to use sort_index
+percentage_over_30 = draft.loc[30:].sum() * 100 #What percentage of players are 30 years or older
+percentage_below_23 = draft.loc[:23].sum() * 100 #percentage of players are 23 years or younger
