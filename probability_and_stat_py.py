@@ -103,6 +103,10 @@ freq_distro_height = wnba['Height'].value_counts()
 
 print(wnba['Height'].mean(), wnba['Height'].min(), wnba['Height'].max())
 
+#Sorting Frequency Distribution Tables
+age_ascending = wnba['Age'].value_counts().sort_index()
+
+age_descending = wnba['Age'].value_counts().sort_index(ascending = False)
 #wnba['Height'].value_counts() returns a Series object with the measures of height as indices. This allows us to sort the table by index using the Series.sort_index() method:
 print(wnba['Height'].value_counts().sort_index())
 #We can also sort the table by index in a descending order using wnba['Height'].value_counts().sort_index(ascending = False)
