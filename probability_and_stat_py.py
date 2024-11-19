@@ -93,3 +93,12 @@ sampling_error_height = wnba['Height'].mean() - sample['Height'].mean()
 sampling_error_age = wnba['Age'].mean() - sample['Age'].mean()
 sampling_error_BMI = wnba['BMI'].mean() - sample['BMI'].mean()
 sampling_error_points = wnba['PTS'].mean() - sample['PTS'].mean()
+
+
+#Frequency Distribution Tables
+#To generate a frequency distribution table using Python, we can use the Series.value_counts() method. 
+freq_distro_pos = wnba['Pos'].value_counts()
+
+freq_distro_height = wnba['Height'].value_counts()
+
+print(wnba['Height'].mean(), wnba['Height'].min(), wnba['Height'].max())
