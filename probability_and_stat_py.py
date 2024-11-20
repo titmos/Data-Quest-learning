@@ -127,3 +127,16 @@ percentage_30 = draft[30] * 100 #percentage of players are 30 years old
 #Note the need to sort the index for the loc to be effective, Hence the need to use sort_index
 percentage_over_30 = draft.loc[30:].sum() * 100 #What percentage of players are 30 years or older
 percentage_below_23 = draft.loc[:23].sum() * 100 #percentage of players are 23 years or younger
+
+
+#Percentiles and Percentile Ranks 
+#using scipy
+from scipy.stats import percentileofscore
+#percentage of players are 23 years or younger?"
+print(percentileofscore(a=wnba['Age'], score=23, kind='weak'))
+
+#We need to use kind = 'weak' to indicate that we want to find the percentage of values that are equal to or less than the value we specify in the score parameter
+#What percentage of players played half the number of games or less 
+percentile_rank_half_less = percentileofscore(a=wnba['Games Played'], score=17, kind='weak')
+#What percentage of players played more than half the number of games
+percentage_half_more = 100 - percentileofscore(a=wnba['Games Played'], score=17, kind='weak')
