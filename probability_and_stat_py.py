@@ -163,3 +163,4 @@ question3 = True
 #Grouped Frequency Distribution Tables
 
 grouped_freq_table = wnba['PTS'].value_counts(bins=10, normalize = True).sort_index(ascending = False) * 100
+#When we generate grouped frequency distribution tables, there's an inevitable information loss
