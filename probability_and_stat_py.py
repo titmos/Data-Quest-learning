@@ -172,3 +172,15 @@ grouped_freq_table = wnba['PTS'].value_counts(bins=10, normalize = True).sort_in
 #We can conclude there is a trade-off between the information in a table, and how comprehensible the table is
 
 #As a rule of thumb, 10 is a good number of class intervals to choose because it offers a good balance between information and comprehensibility.
+
+
+# Readability for Grouped Frequency Tables
+# we can define the intervals ourselves. For the table above, we can define six intervals of 100 points each, and then count how many values fit in each interval. 
+#To achieve this, let's look at one way to code the intervals. We start with creating the intervals using the pd.interval_range() function
+intervals = pd.interval_range(start=0, end=600, freq=100)
+
+#Next, we pass the intervals variable to the bins parameter
+gr_freq_table = wnba["PTS"].value_counts(bins = intervals).sort_index()
+print(gr_freq_table)
+print(gr_freq_table.sum())
+#Note that we're not restricted by the minimum and maximum values of a variable when we define intervals. The minimum number of points is 2, and the maximum is 584, but our intervals range from 1 to 600.
