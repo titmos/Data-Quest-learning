@@ -140,3 +140,13 @@ print(percentileofscore(a=wnba['Age'], score=23, kind='weak'))
 percentile_rank_half_less = percentileofscore(a=wnba['Games Played'], score=17, kind='weak')
 #What percentage of players played more than half the number of games
 percentage_half_more = 100 - percentileofscore(a=wnba['Games Played'], score=17, kind='weak')
+
+
+# Finding Percentiles with pandas
+#we can use the Series.describe() method, which returns by default the 25th, the 50th, and the 75th percentiles
+print(wnba['Age'].describe())#we can add this to show only the percentiles.iloc[4:7])
+print(wnba['Age'].describe().iloc[4:7])
+#We may be interested to find the percentiles for percentages other than 25%, 50%, or 75%. For that, we can use the percentiles parameter of Series.describe()
+print(wnba['Age'].describe(percentiles=[0.1, 0.15, 0.33, 0.5, 0.592, 0.85, 0.99]).iloc[3:])
+
+#Note Percentiles don't have a single standard definition, so don't be surprised if you get very similar (but not identical) values if you use different functions (especially if the functions come from different libraries).
