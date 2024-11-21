@@ -150,3 +150,11 @@ print(wnba['Age'].describe().iloc[4:7])
 print(wnba['Age'].describe(percentiles=[0.1, 0.15, 0.33, 0.5, 0.592, 0.85, 0.99]).iloc[3:])
 
 #Note Percentiles don't have a single standard definition, so don't be surprised if you get very similar (but not identical) values if you use different functions (especially if the functions come from different libraries).
+percentiles = wnba['Age'].describe(percentiles = [0.5, 0.75, 0.95])
+#We can use the methods below to extract each percentile
+age_upper_quartile = percentiles['75%']
+age_middle_quartile = percentiles['50%']
+age_95th_percentile =percentiles['95%']
+question1 = True
+question2 = False
+question3 = True
