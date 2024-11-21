@@ -193,3 +193,11 @@ import matplotlib.pyplot as plt
 
 wnba['Pos'].value_counts().plot.bar ()
 plt.show()
+
+import matplotlib.pyplot as plt
+print(wnba['Exp_ordinal'].value_counts())#Generate a frequency table for the Exp_ordinal variable.
+#Sort the table by unique labels in an ascending logical order 
+print(wnba['Exp_ordinal'].value_counts().iloc[[3,0,2,1,4]])
+#Generate a bar plot using the Series.plot.bar() method
+wnba['Exp_ordinal'].value_counts().iloc[[3,0,2,1,4]].plot.bar ()
+plt.show()
