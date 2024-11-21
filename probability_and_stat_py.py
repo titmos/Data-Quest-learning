@@ -185,6 +185,7 @@ print(gr_freq_table)
 print(gr_freq_table.sum())
 #Note that we're not restricted by the minimum and maximum values of a variable when we define intervals. The minimum number of points is 2, and the maximum is 584, but our intervals range from 1 to 600.
 
+#Visualizing Frequency Distributions
 #Bar Plots
 #For variables measured on a nominal or an ordinal scale it's common to use a bar plot to visualize their distribution
 import matplotlib.pyplot as plt
