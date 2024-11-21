@@ -184,3 +184,11 @@ gr_freq_table = wnba["PTS"].value_counts(bins = intervals).sort_index()
 print(gr_freq_table)
 print(gr_freq_table.sum())
 #Note that we're not restricted by the minimum and maximum values of a variable when we define intervals. The minimum number of points is 2, and the maximum is 584, but our intervals range from 1 to 600.
+
+#Bar Plots
+#For variables measured on a nominal or an ordinal scale it's common to use a bar plot to visualize their distribution
+import matplotlib.pyplot as plt
+#The Series.plot.bar() method generates a vertical bar plot with the frequencies on the y-axis, and the unique values on the x-axis. To generate a horizontal bar plot, we can use the Series.plot.barh() method
+
+wnba['Pos'].value_counts().plot.bar ()
+plt.show()
