@@ -164,3 +164,11 @@ question3 = True
 
 grouped_freq_table = wnba['PTS'].value_counts(bins=10, normalize = True).sort_index(ascending = False) * 100
 #When we generate grouped frequency distribution tables, there's an inevitable information loss
+#Information Loss
+#because we grouped the values, we lost more granular information 
+#To get back this granular information, we can increase the number of class intervals. However, if we do that, we end up again with a table that's lengthy and very difficult to analyze.
+
+#On the other side, if we decrease the number of class intervals, we lose even more information
+#We can conclude there is a trade-off between the information in a table, and how comprehensible the table is
+
+#As a rule of thumb, 10 is a good number of class intervals to choose because it offers a good balance between information and comprehensibility.
