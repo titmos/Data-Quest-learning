@@ -201,3 +201,13 @@ print(wnba['Exp_ordinal'].value_counts().iloc[[3,0,2,1,4]])
 #Generate a bar plot using the Series.plot.bar() method
 wnba['Exp_ordinal'].value_counts().iloc[[3,0,2,1,4]].plot.bar ()
 plt.show()
+
+#Horizontal Bar Plots
+import matplotlib.pyplot as plt
+
+wnba['Exp_ordinal'].value_counts().iloc[[3,0,2,1,4]].plot.bar(rot=45) #make the tick labels readable using rot
+plt.show()
+
+#We can also use a horizontal bar plot to visualize for readability
+wnba['Pos'].value_counts().plot.barh(title='Number of players in WNBA by position')
+plt.show()
