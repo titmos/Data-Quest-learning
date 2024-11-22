@@ -227,3 +227,5 @@ plt.show()
 # To show the proportions or Percentages on the chart we use the autopct parameter and string formating '%.1f%%'
 #% initailises string fmt, .1 for decimal precision, f number as fixed point, % indicates the use of percentages, % uses percentage symbol
 # the percentages were automatically determined under the hood, which means we don't have to transform to percentages ourselves using Series.value_counts(normalize = True) * 100
+#https://docs.python.org/3/library/string.html#format-specification-mini-language
+#https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pie.html autopct
