@@ -211,3 +211,11 @@ plt.show()
 #We can also use a horizontal bar plot to visualize for readability
 wnba['Pos'].value_counts().plot.barh(title='Number of players in WNBA by position')
 plt.show()
+
+
+#Pie Charts
+#We can generate pie charts using the Series.plot.pie() method
+import matplotlib.pyplot as plt
+
+wnba['Exp_ordinal'].value_counts().plot.pie()
+plt.show()
