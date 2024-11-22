@@ -219,3 +219,10 @@ import matplotlib.pyplot as plt
 
 wnba['Exp_ordinal'].value_counts().plot.pie()
 plt.show()
+
+#Customizing a Pie Chart
+#If we want to give the pie chart the proper shape, we need to specify equal values for height and width in the figsize parameter
+
+#To remove the lable we use plt.ylabel('')
+# To show the proportions or Percentages on the chart we use the autopct parameter and string formating '%.1f%%'
+#% initailises string fmt, .1 for decimal precision, f number as fixed point, % indicates the use of percentages, % uses percentage symbol
