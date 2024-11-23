@@ -229,3 +229,9 @@ plt.show()
 # the percentages were automatically determined under the hood, which means we don't have to transform to percentages ourselves using Series.value_counts(normalize = True) * 100
 #https://docs.python.org/3/library/string.html#format-specification-mini-language
 #https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pie.html autopct
+
+#Trial 
+import matplotlib.pyplot as plt
+wnba['Exp_ordinal'].value_counts().plot.pie(figsize=(6,6), autopct='%.2f%%', title = 'Percentage of players in WNBA by level of experience')
+plt.ylabel('')
+plt.show()
