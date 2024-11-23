@@ -244,3 +244,22 @@ print(wnba['PTS'].describe())
 
 wnba['PTS'].plot.hist()
 plt.show()
+
+#The Statistics Behind Histograms
+print(wnba['PTS'].value_counts(bins=10).sort_index())
+
+'''
+Each bar in the histogram corresponds to one class interval. To show this is true, we'll generate below the same histogram as in the previous screen, but this time:
+
+We'll add the values of the x-ticks manually using the xticks parameter.
+The values will be the limits of each class interval.
+We use the arange() function from numpy to generate the values and avoid spending time with typing all the values ourselves.
+We start at 2, not at 1.417, because this is the actual minimum value of the first class interval (we discussed about this in more detail in the previous lesson).
+We'll add a grid line using the grid parameter to demarcate clearly each bar.
+We'll rotate the tick labels of the x-axis using the rot parameter for better readability.
+'''
+import matplotlib.pyplot as plt
+import numpy as np
+
+wnba['PTS'].plot.hist(grid=True, xticks=np.arange(2,585,58.2), rot=30)
+plt.show()
