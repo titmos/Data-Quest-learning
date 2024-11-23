@@ -294,3 +294,12 @@ wnba['FT%'].plot.hist(range=(0,100), bins=8)
 plt.show()
 assists_distro = 'right skewed'
 ft_percent_distro = 'left skewed'
+
+
+# Symmetrical Distributions
+
+#divide the histogram in two halves that are mirror images of one another.
+#This pattern is specific to what we call a normal distribution (also called Gaussian distribution)
+#Another common symmetrical distribution is one where the values are distributed uniformly across the entire range. This pattern is specific to a uniform distribution.
+#When we say that the distribution above resembles closely a normal distribution, we mean that most values pile up somewhere close to the middle and decrease in frequency more or less gradually toward both ends of the histogram.
+#A similar reasoning applies to skewed distributions. We don't see very often clear-cut skewed distributions, and we use the left and right skewed distributions as baselines for comparison.
