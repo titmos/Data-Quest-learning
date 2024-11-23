@@ -303,3 +303,13 @@ ft_percent_distro = 'left skewed'
 #Another common symmetrical distribution is one where the values are distributed uniformly across the entire range. This pattern is specific to a uniform distribution.
 #When we say that the distribution above resembles closely a normal distribution, we mean that most values pile up somewhere close to the middle and decrease in frequency more or less gradually toward both ends of the histogram.
 #A similar reasoning applies to skewed distributions. We don't see very often clear-cut skewed distributions, and we use the left and right skewed distributions as baselines for comparison.
+import matplotlib.pyplot as plt
+
+wnba['Age'].plot.hist(range=(21,36), bins=12, title = 'Age')
+plt.show()
+print(wnba['Height'].describe())
+wnba['Height'].plot.hist(range=(165,206), bins=12, title = 'Height')
+plt.show()
+wnba['MIN'].plot.hist(range=(12,1018), bins=12, title = 'MIN')
+plt.show()
+normal_distribution = 'Age'
