@@ -247,7 +247,6 @@ plt.show()
 
 #The Statistics Behind Histograms
 print(wnba['PTS'].value_counts(bins=10).sort_index())
-
 '''
 Each bar in the histogram corresponds to one class interval. To show this is true, we'll generate below the same histogram as in the previous screen, but this time:
 
