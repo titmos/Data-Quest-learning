@@ -279,3 +279,18 @@ import matplotlib.pyplot as plt
 wnba['Games Played'].plot.hist(range=(1,32), bins=8, title = 'The distribution of players by games played') #Each bin must cover an interval of 4 games. The first bin must start at 1, the last bin must end at 32.
 plt.xlabel('Games played')
 plt.show()
+
+
+#Skewed Distributions
+#If the tail points to the left, then the distribution is said to be left skewed. When it points to the left, the tail points at the same time in the direction of negative numbers, and for this reason the distribution is sometimes also called negatively skewed.
+#If the tail points to the right, then the distribution is right skewed. The distribution is sometimes also said to be positively skewed because the tail points in the direction of positive numbers.
+
+import matplotlib.pyplot as plt
+
+wnba['AST'].plot.hist(range=(1,32), bins=8)
+plt.show()
+print(wnba['FT%'].describe())
+wnba['FT%'].plot.hist(range=(0,100), bins=8)
+plt.show()
+assists_distro = 'right skewed'
+ft_percent_distro = 'left skewed'
