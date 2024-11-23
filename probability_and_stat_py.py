@@ -235,3 +235,12 @@ import matplotlib.pyplot as plt
 wnba['Exp_ordinal'].value_counts().plot.pie(figsize=(6,6), autopct='%.2f%%', title = 'Percentage of players in WNBA by level of experience')
 plt.ylabel('')
 plt.show()
+
+
+#Histograms
+import matplotlib.pyplot as plt
+print(wnba['PTS'].describe())
+#Because of the special properties of variables measured on interval and ratio scales, we can describe distributions in more elaborate ways.
+
+wnba['PTS'].plot.hist()
+plt.show()
