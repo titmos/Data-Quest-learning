@@ -272,3 +272,10 @@ import matplotlib.pyplot as plt
 
 wnba['PTS'].plot.hist(range=(1,600), bins=3)
 plt.show()
+
+
+import matplotlib.pyplot as plt
+
+wnba['Games Played'].plot.hist(range=(1,32), bins=8, title = 'The distribution of players by games played') #Each bin must cover an interval of 4 games. The first bin must start at 1, the last bin must end at 32.
+plt.xlabel('Games played')
+plt.show()
