@@ -262,3 +262,13 @@ import numpy as np
 
 wnba['PTS'].plot.hist(grid=True, xticks=np.arange(2,585,58.2), rot=30)
 plt.show()
+
+
+#Binning for Histograms
+#To modify the number of class intervals used for a histogram, we can use the bins parameter of Series.plot.hist()
+#Also, we'll often want to avoid letting pandas work out the intervals, and use instead intervals that we think make more sense. 
+#We start with specifying the range of the entire distribution using the range parameter of Series.plot.hist()
+import matplotlib.pyplot as plt
+
+wnba['PTS'].plot.hist(range=(1,600), bins=3)
+plt.show()
