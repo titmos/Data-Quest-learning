@@ -313,3 +313,24 @@ plt.show()
 wnba['MIN'].plot.hist(range=(12,1018), bins=12, title = 'MIN')
 plt.show()
 normal_distribution = 'Age'
+
+
+#Comparing Frequency Distributions
+#graphs we can use to compare multiple frequency distributions at once
+#Segment the players in the data set by level of experience.
+rookies = wnba[wnba['Exp_ordinal'] == 'Rookie']
+little_xp = wnba[wnba['Exp_ordinal'] == 'Little experience']
+experienced = wnba[wnba['Exp_ordinal'] == 'Experienced']
+very_xp = wnba[wnba['Exp_ordinal'] == 'Very experienced']
+veterans =  wnba[wnba['Exp_ordinal'] == 'Veteran']
+
+#For each segment, generate a frequency distribution table for the Pos variable.
+rookie_distro = rookies['Pos'].value_counts()
+little_xp_distro = little_xp['Pos'].value_counts()
+experienced_distro = experienced['Pos'].value_counts()
+very_xp_distro = very_xp['Pos'].value_counts()
+veteran_distro = veterans['Pos'].value_counts()
+
+#Analyze the frequency distributions comparatively.
+print(rookie_distro, '\n\n', little_xp_distro, '\n\n', experienced_distro, '\n\n',
+      very_xp_distro, '\n\n', veteran_distro)
