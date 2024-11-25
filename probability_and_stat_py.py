@@ -375,3 +375,13 @@ plt.show()
 result = 'rejection' # to show if the hypothesis is true or not
 
 #order = ['Rookie', 'Little experience', 'Experienced', 'Very experienced', 'Veteran' ], hue_order = ['C', 'F', 'F/C', 'G', 'G/F']
+
+
+#Comparing Histograms
+#The easiest way to compare two histograms is to superimpose one on top of the other.
+wnba[wnba.Age >= 27]['MIN'].plot.hist(histtype='step', label='Old', legend=True)
+wnba[wnba.Age < 27]['MIN'].plot.hist(histtype='step', label='Young', legend=True)
+#We use the histtype parameter to visualize the differences in the two histogram (making it without fill)
+plt.axvline(x = 497, label = 'Average') #This inserts a line on the specified point and shows the legend
+plt.legend() #Display the label by running
+plt.show()
