@@ -385,3 +385,14 @@ wnba[wnba.Age < 27]['MIN'].plot.hist(histtype='step', label='Young', legend=True
 plt.axvline(x = 497, label = 'Average') #This inserts a line on the specified point and shows the legend
 plt.legend() #Display the label by running
 plt.show()
+
+
+#Kernel Density Estimate Plots
+#We can smooth out our two histograms above for old and young players using the Series.plot.kde() function.
+wnba[wnba.Age >= 27]['MIN'].plot.kde(label='Old', legend=True)
+wnba[wnba.Age < 27]['MIN'].plot.kde(label='Young', legend=True)
+
+plt.legend()
+plt.show()
+#Each of the smoothed histograms above is called a kernel density estimate plot or, shorter, kernel density plot.
+#Unlike histograms, kernel density plots display densities on the y-axis instead of frequencies. The density values are actually probability values — which we'll be able to understand more about after the probability courses.
