@@ -406,3 +406,15 @@ wnba[wnba.Pos == 'G']['Height'].plot.kde(label='G', legend=True)
 wnba[wnba.Pos == 'G/F']['Height'].plot.kde(label='G/F', legend=True)
 wnba[wnba.Pos == 'F/C']['Height'].plot.kde(label='F/C', legend=True)
 plt.show()
+
+
+#Strip Plots
+#This is one alternative we can use to visualize the distribution of heights as a function of player position:
+#To generate the strip plot, we can use the sns.stripplot() function from the seaborn module. 
+#sns.set_theme()
+#sns.stripplot(x='Pos', y='Height', data=wnba, hue='Pos', jitter=False)
+
+#Using strip plots, examine the distribution of player weight (not height) as a function of player position. 
+sns.set_theme()
+sns.stripplot(x='Pos', y='Weight', data=wnba, hue='Pos', jitter= True)
+plt.show()
