@@ -334,3 +334,15 @@ veteran_distro = veterans['Pos'].value_counts()
 #Analyze the frequency distributions comparatively.
 print(rookie_distro, '\n\n', little_xp_distro, '\n\n', experienced_distro, '\n\n',
       very_xp_distro, '\n\n', veteran_distro)
+
+
+#Grouped Bar Plots
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.countplot(x='Exp_ordinal', hue='Pos', data=wnba)
+#x — specifies as a string the name of the column we want on the x-axis
+#hue — specifies as a string the name of the column we want the bar plots generated for.
+#data - specifies the name of the variable which stores the data set. 
+plt.show()
+plt.figure().set_figwidth(8)
