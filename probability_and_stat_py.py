@@ -346,3 +346,13 @@ sns.countplot(x='Exp_ordinal', hue='Pos', data=wnba)
 #data - specifies the name of the variable which stores the data set. 
 plt.show()
 plt.figure().set_figwidth(8)
+
+#Grouped Bar Plots activity
+import matplotlib.pyplot as plt
+import seaborn as sns
+plt.figure().set_figwidth(8) #to prevent the x-axis labels from overlapping.
+sns.countplot(x='Exp_ordinal', hue='Pos', data=wnba, order = ['Rookie', 'Little experience', 'Experienced', 'Very experienced', 'Veteran' ], hue_order = ['C', 'F', 'F/C', 'G', 'G/F']) 
+#Using the order parameter of sns.countplot(), order the values on the x-axis in ascending order.
+#Using the hue_order parameter, order the bars of each bar plot in ascending alphabetic order.
+sns.set_theme()
+plt.show()
