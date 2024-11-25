@@ -396,3 +396,13 @@ plt.legend()
 plt.show()
 #Each of the smoothed histograms above is called a kernel density estimate plot or, shorter, kernel density plot.
 #Unlike histograms, kernel density plots display densities on the y-axis instead of frequencies. The density values are actually probability values — which we'll be able to understand more about after the probability courses.
+
+#More instances 
+#Let's say we're interested in analyzing the distribution of player height as a function of player position. In other words, we want to figure out, for instance, whether centers are generally taller than forwards, whether forwards are generally shorter than guards, and so on. In the code below, we'll segment the data set by player position, and for each segment we'll generate a kernel density plot for the distribution of the Height variable:
+
+wnba[wnba.Pos == 'F']['Height'].plot.kde(label='F', legend=True)
+wnba[wnba.Pos == 'C']['Height'].plot.kde(label='C', legend=True)
+wnba[wnba.Pos == 'G']['Height'].plot.kde(label='G', legend=True)
+wnba[wnba.Pos == 'G/F']['Height'].plot.kde(label='G/F', legend=True)
+wnba[wnba.Pos == 'F/C']['Height'].plot.kde(label='F/C', legend=True)
+plt.show()
