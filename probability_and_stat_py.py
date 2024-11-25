@@ -356,3 +356,22 @@ sns.countplot(x='Exp_ordinal', hue='Pos', data=wnba, order = ['Rookie', 'Little 
 #Using the hue_order parameter, order the bars of each bar plot in ascending alphabetic order.
 sns.set_theme()
 plt.show()
+
+
+#Challenge: Do Older Players Play Less?
+
+#Let's hypothesize that older players generally play less than this average of 497 minutes, while younger players generally play more.
+print(wnba['MIN'].mean())
+print(wnba['Age'].mean())
+
+wnba['age_mean_relative'] = wnba['Age'].apply(lambda x: 'old' if x >= 27 else 'young')
+#We generate an ordinal variable for the age classes using lambda function
+wnba['min_mean_relative'] = wnba['MIN'].apply(lambda x: 'average or above' if x >= 497 else
+                                           'below average')
+#We generate an ordinal variable for the min played class using lambda function
+sns.countplot(x='age_mean_relative', hue='min_mean_relative', data=wnba)
+sns.set_theme()
+plt.show()
+result = 'rejection' # to show if the hypothesis is true or not
+
+#order = ['Rookie', 'Little experience', 'Experienced', 'Very experienced', 'Veteran' ], hue_order = ['C', 'F', 'F/C', 'G', 'G/F']
