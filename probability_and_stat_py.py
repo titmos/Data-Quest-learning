@@ -418,3 +418,11 @@ plt.show()
 sns.set_theme()
 sns.stripplot(x='Pos', y='Weight', data=wnba, hue='Pos', jitter= True)
 plt.show()
+
+
+#Box plots
+#Besides strip plots, there's another kind of graph we can use to display many distributions at once and make sure everything is still readable. Below, we use this kind of graph to plot again the distribution of player height as a function of player position:
+#Each individual plot above shows a distribution. 
+sns.set_theme()
+sns.boxplot(x='Pos', y='Weight', hue='Pos', data=wnba)
+plt.show()
