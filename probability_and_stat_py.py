@@ -444,3 +444,4 @@ outliers_high = sum(wnba['Games Played'] > upper_bound)
 
 sns.boxplot(wnba['Games Played'])
 plt.show()
+
