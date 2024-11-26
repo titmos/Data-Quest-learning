@@ -426,3 +426,21 @@ plt.show()
 sns.set_theme()
 sns.boxplot(x='Pos', y='Weight', hue='Pos', data=wnba)
 plt.show()
+
+
+#Outliers
+#A value that is much lower or much larger than the rest of the values in a distribution is called an outlier.
+#It's larger than the upper quartile by 1.5 times the difference between the upper quartile and the lower quartile (the difference is also called the interquartile range).
+#It's lower than the lower quartile by 1.5 times the difference between the upper quartile and the lower quartile
+sns.set_theme()
+print(wnba['Games Played'].describe())
+
+iqr = wnba['Games Played'].describe()['75%'] - wnba['Games Played'].describe()['25%']#interquartile range
+
+lower_bound = 22 - (1.5 * iqr) 
+upper_bound = 29 + (1.5 * iqr)
+outliers_low = sum(wnba['Games Played'] < lower_bound) 
+outliers_high = sum(wnba['Games Played'] > upper_bound)
+
+sns.boxplot(wnba['Games Played'])
+plt.show()
