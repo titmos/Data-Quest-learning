@@ -445,3 +445,30 @@ outliers_high = sum(wnba['Games Played'] > upper_bound)
 sns.boxplot(wnba['Games Played'])
 plt.show()
 
+
+
+
+STATISTICS IN PY 2 (MEASURES)
+#The Mean as a Balance Point
+import numpy as np
+
+equal_distances = 0
+
+for x in range(0, 5000):#Generate 5000 different distributions
+    np.random.seed(x)# the function ensures that the sequence of random numbers generated remains the same across multiple runs
+    distribution = np.random.randint(0, 1000, 10) #Generate randomly a distribution of integers of 10 values in a range of 0 to 1000
+    mean = sum(distribution) / len(distribution)
+    
+    above = []#measure the total distances above and below the mean
+    below = []
+    for i in distribution:
+        if i == mean:
+            continue
+        if i < mean:
+            below.append(mean - i)
+        if i > mean:
+            above.append(i - mean)
+    sum_above = round(sum(above), 1)
+    sum_below = round(sum(below), 1p)
+    if (sum_above == sum_below):#measure the total distances above and below the mean
+        equal_distances += 1
