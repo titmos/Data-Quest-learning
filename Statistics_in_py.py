@@ -472,3 +472,19 @@ for x in range(0, 5000):#Generate 5000 different distributions
     sum_below = round(sum(below), 1p)
     if (sum_above == sum_below):#measure the total distances above and below the mean
         equal_distances += 1
+
+#An Alternative Definition of the mean 
+distribution_1 = [42, 24, 32, 11]
+distribution_2 = [102, 32, 74, 15, 38, 45, 22]
+distribution_3 = [3, 12, 7, 2, 15, 1, 21]
+
+def mean(list):#sums a sequence and returns the mean
+    sum_list = 0
+    for x in list:
+        sum_list += x
+    return sum_list/len(list)
+
+mean_1 = mean(distribution_1)
+mean_2 = mean(distribution_2)
+mean_3 = mean(distribution_3)
+    
