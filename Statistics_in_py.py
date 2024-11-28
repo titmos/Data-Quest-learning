@@ -488,3 +488,25 @@ mean_1 = mean(distribution_1)
 mean_2 = mean(distribution_2)
 mean_3 = mean(distribution_3)
     
+
+#Estimating the Population Mean
+#sampling_error = parameter - statistic
+
+parameter = houses['SalePrice'].mean()
+#initializations for the loop
+n = 5
+sampling_errors = []
+sample_sizes = []
+for i in range(101):
+    sample = houses['SalePrice'].sample(n, random_state = i)
+    sample_sizes.append(n)
+    sampling_errors.append(parameter - sample.mean())
+    n += 29
+#print(sample_sizes, sampling_errors)
+import matplotlib.pyplot as plt
+plt.scatter(sample_sizes, sampling_errors)
+plt.axhline(0)
+plt.axvline(2930)
+plt.xlabel('Sample size')
+plt.ylabel('Sampling error')
+plt.show()
