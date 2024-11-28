@@ -523,3 +523,17 @@ plt.hist(means)
 plt.axvline(houses['SalePrice'].mean())
 plt.show()
 #we see thatt most sample mean cluster around the population mean from the plot.
+#ACTIVITY
+#Estimates from Low-Sized Samples
+
+means = []
+for i in range(10000):
+    sample = houses['SalePrice'].sample(100, random_state=i)
+    means.append(sample.mean())
+
+plt.hist(means)
+plt.axvline(houses['SalePrice'].mean())#vertical line to mark the population mean
+plt.xlim(0, 500000) #Set the range of the x-axis to (0,500000)
+plt.xlabel('Sample mean')
+plt.ylabel('Frequency')
+plt.show()
