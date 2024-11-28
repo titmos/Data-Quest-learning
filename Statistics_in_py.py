@@ -539,3 +539,21 @@ plt.ylabel('Frequency')
 plt.show()
 # we observed that with a sample size of 100 the sample means vary much less around the population mean than in the case of a sample size of 3.
 #Generally, as we increase the sample size, there will be less and less variability around the population mean. If there's less variability, there are less chances to get a poor estimate for the population mean — the worst sample means we can get are fairly close to the population mean, which is good.
+
+#The Sample Mean as an Unbiased Estimator; When a statistic is on average equal to the parameter it estimates.
+#This also holds true if we sample with replacement,we sample one value, and then we put it back in the population. 
+population = [3, 7, 2]
+samples = [[3, 7], [3, 2],
+           [7, 2], [7, 3],
+           [2, 3], [2, 7]
+          ]
+
+sample_means = []
+
+for sample in samples:
+    sample_means.append(sum(sample) / len(sample))
+    
+population_mean = sum(population) / len(population)
+mean_of_sample_means = sum(sample_means) / len(sample_means)
+
+unbiased = (population_mean == mean_of_sample_means)
