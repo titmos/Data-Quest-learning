@@ -538,3 +538,4 @@ plt.xlabel('Sample mean')
 plt.ylabel('Frequency')
 plt.show()
 # we observed that with a sample size of 100 the sample means vary much less around the population mean than in the case of a sample size of 3.
+#Generally, as we increase the sample size, there will be less and less variability around the population mean. If there's less variability, there are less chances to get a poor estimate for the population mean — the worst sample means we can get are fairly close to the population mean, which is good.
