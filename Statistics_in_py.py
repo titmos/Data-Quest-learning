@@ -537,3 +537,4 @@ plt.xlim(0, 500000) #Set the range of the x-axis to (0,500000)
 plt.xlabel('Sample mean')
 plt.ylabel('Frequency')
 plt.show()
+# we observed that with a sample size of 100 the sample means vary much less around the population mean than in the case of a sample size of 3.
