@@ -557,3 +557,12 @@ population_mean = sum(population) / len(population)
 mean_of_sample_means = sum(sample_means) / len(sample_means)
 
 unbiased = (population_mean == mean_of_sample_means)
+
+
+#Different Weights
+houses_per_year['sum_per_year'] = houses_per_year['Mean Price'] * houses_per_year['Houses Sold']
+all_sums_together = houses_per_year['sum_per_year'].sum()
+total_n_houses = houses_per_year['Houses Sold'].sum()
+weighted_mean = round(all_sums_together / total_n_houses, 10)
+mean_original = round(houses['SalePrice'].mean(), 10)
+difference = mean_original - weighted_mean
