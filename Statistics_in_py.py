@@ -510,3 +510,16 @@ plt.axvline(2930)
 plt.xlabel('Sample size')
 plt.ylabel('Sampling error')
 plt.show()
+
+#Estimates from Low-Sized Samples
+#From the previous activity, we observed that we can also get better estimates for the population mean from lower sample sizes where sampling error is low  
+#proof
+means = []
+for i in range(10000):
+    sample = houses['SalePrice'].sample(3, random_state=i)
+    means.append(sample.mean())
+
+plt.hist(means)
+plt.axvline(houses['SalePrice'].mean())
+plt.show()
+#we see thatt most sample mean cluster around the population mean from the plot.
