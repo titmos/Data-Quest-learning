@@ -594,3 +594,17 @@ if len(for_use)%2 == 0:
     median = for_use.iloc[int(len(for_use)/2)] + for_use.iloc[int(len(for_use)/2)- 1]
     median = median/2
 print(median)
+
+#The Median as a Resistant Statistic
+#When we compute the mean, we account equally for each value in the distribution — we sum up all the values in the distribution and then divide the total by the number of values we added
+#When we compute the median,we only consider the middle value (or the middle two values).
+
+# the mean takes into account every value in the distribution, while the median considers only the middle value. Because the median is so resistant to changes in the data, it's classified as a resistant or robust statistic.
+import matplotlib.pyplot as plt
+houses['Lot Area'].plot.box()
+plt.show()
+houses['SalePrice'].plot.box()
+plt.show()
+
+lotarea_difference = houses['Lot Area'].mean() - houses['Lot Area'].median()
+saleprice_difference = houses['SalePrice'].mean() - houses['SalePrice'].median()
