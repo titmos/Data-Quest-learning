@@ -609,3 +609,16 @@ plt.show()
 lotarea_difference = houses['Lot Area'].mean() - houses['Lot Area'].median()
 saleprice_difference = houses['SalePrice'].mean() - houses['SalePrice'].median()
 #This property makes the median ideal for finding reasonable averages for distributions containing outliers. 
+
+#The Median for Ordinal Scales
+#Because words like "fair" or "average" are coded with numbers, it becomes mathematically possible to compute the mean.
+import matplotlib.pyplot as plt
+print(houses['Overall Cond'].value_counts().sort_values(ignore_index=True))
+#Find the mean and the median of the Overall Cond variable.
+mean = houses['Overall Cond'].mean()
+median = houses['Overall Cond'].median()
+#Plot a histogram to visualize the distribution of the Overall Cond variable.
+houses['Overall Cond'].plot.hist()
+plt.show()
+
+more_representative = 'mean'
