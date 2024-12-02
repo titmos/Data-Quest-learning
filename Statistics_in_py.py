@@ -608,3 +608,4 @@ plt.show()
 
 lotarea_difference = houses['Lot Area'].mean() - houses['Lot Area'].median()
 saleprice_difference = houses['SalePrice'].mean() - houses['SalePrice'].median()
+#This property makes the median ideal for finding reasonable averages for distributions containing outliers. 
