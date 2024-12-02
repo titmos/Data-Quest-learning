@@ -584,3 +584,13 @@ weighted_mean_numpy = np.average(houses_per_year['Mean Price'], weights = houses
 
 #To check if the value from the function and that from the numpy are same
 equal = weighted_mean_function == weighted_mean_numpy
+
+
+# Distributions with Even Number of Values
+#Find the median value of the TotRms AbvGrd column.
+for_use = houses['TotRms AbvGrd'].copy().replace({'10 or more': 10} ).astype(int). sort_values(axis = 0, ascending=True, ignore_index = True)
+
+if len(for_use)%2 == 0:
+    median = for_use.iloc[int(len(for_use)/2)] + for_use.iloc[int(len(for_use)/2)- 1]
+    median = median/2
+print(median)
