@@ -566,3 +566,21 @@ total_n_houses = houses_per_year['Houses Sold'].sum()
 weighted_mean = round(all_sums_together / total_n_houses, 10)
 mean_original = round(houses['SalePrice'].mean(), 10)
 difference = mean_original - weighted_mean
+
+
+#Write a function that computes the weighted mean for any array of numbers
+def w_function(x, y):
+    sum_mean_weight = 0
+    weight_sum = 0
+    for i, j in zip(x, y):
+        sum_mean_weight += (i * j)
+        weight_sum += j
+    return sum_mean_weight / weight_sum
+#Use the function you wrote to compute the weighted mean
+weighted_mean_function = w_function(houses_per_year['Mean Price'], houses_per_year['Houses Sold'])
+import numpy as np
+#compute the weighted mean using numpy
+weighted_mean_numpy = np.average(houses_per_year['Mean Price'], weights = houses_per_year['Houses Sold'])
+
+#To check if the value from the function and that from the numpy are same
+equal = weighted_mean_function == weighted_mean_numpy
