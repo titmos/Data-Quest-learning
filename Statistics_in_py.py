@@ -638,3 +638,19 @@ def mode_fn(x):
 mode_function = mode_fn(houses['Land Slope'])
 mode_method = houses['Land Slope'].mode()
 same = mode_function == mode_method
+
+#The Mode for Nominal Variables
+
+# The function we wrote (you can copy-paste yours from the previous screen)
+def mode(array):
+    counts = {}
+    
+    for value in array:
+        if value in counts:
+            counts[value] += 1
+        else:
+            counts[value] = 1
+    
+    return (max(counts, key=counts.get), counts)
+mode, value_counts = mode(houses['Roof Style']) #A Python function can return multiple values.
+new_value_counts = houses['Roof Style'].value_counts()
