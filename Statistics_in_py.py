@@ -622,3 +622,19 @@ houses['Overall Cond'].plot.hist()
 plt.show()
 
 more_representative = 'mean'
+
+
+#The Mode for Ordinal Variables
+
+# function that takes in an array of values (including strings) and returns the mode of that array
+def mode_fn(x):
+    new_dic = {}
+    for i in x:
+        if i in new_dic:
+            new_dic[i] += 1
+        else: new_dic[i] = 1
+    return max(new_dic, key = new_dic.get)
+
+mode_function = mode_fn(houses['Land Slope'])
+mode_method = houses['Land Slope'].mode()
+same = mode_function == mode_method
