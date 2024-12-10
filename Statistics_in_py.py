@@ -684,3 +684,21 @@ median = houses['SalePrice'].median()
 sentence_1 = True
 
 sentence_2 = True
+
+
+#Skewed Distributions
+#When we plot a histogram or a kernel density plot to visualize the shape of a distribution, the mode will always be the peak of the Distribution
+''' This distribution is clearly right skewed. Generally, the location of the mode, median and mean is predictable for a right-skewed distribution:
+
+Most values are concentrated in the left body of the distribution where they will form a peak — this is where the mode will be.
+Remember that the median divides a distribution in two halves of equal length. For this reason, the median is usually positioned slightly right from the peak (the mode) for a right-skewed distribution.
+The mean takes into account each value in the distribution, and it will be affected by the outliers in the right tail. This will generally pull the mean to the right of the median.
+So in a right-skewed distribution, the mean will usually be to the right of the median, and the median will be to the right of the mode. 
+For a left-skewed distribution, the direction is simply reversed: the mean is positioned to the left of the median, and the median to the left of the mode. '''
+
+distribution_1 = {'mean': 3021 , 'median': 3001, 'mode': 2947}
+distribution_2 = {'median': 924 , 'mode': 832, 'mean': 962}
+distribution_3 = {'mode': 202, 'mean': 143, 'median': 199}
+shape_1 = 'right skew'
+shape_2 = 'right skew'
+shape_3 = 'left skew'
