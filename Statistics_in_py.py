@@ -719,3 +719,25 @@ plt.axvline(houses['Mo Sold'].median(), color='orange', label='Median')
 plt.axvline(houses['Mo Sold'].mean(), color='black', label='Mean')
 plt.legend()
 plt.show()
+
+
+
+#Measures of Variability
+#Range
+
+import pandas as pd
+houses = pd.read_table('AmesHousing_1.txt')
+
+def range(x): #a function that takes in an array of numerical values and returns the range of that array
+    return max(x) - min(x)
+range_by_year = {} #Initialise an empty dictionary
+
+for year in houses['Yr Sold'].unique(): #find the range per year
+    q = houses['SalePrice'][houses['Yr Sold'] == year]
+    range_by_year[year] = range(q)
+print(range_by_year)
+
+one = False
+two = True
+    
+
