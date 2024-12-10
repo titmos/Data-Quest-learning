@@ -654,3 +654,13 @@ def mode(array):
     return (max(counts, key=counts.get), counts)
 mode, value_counts = mode(houses['Roof Style']) #A Python function can return multiple values.
 new_value_counts = houses['Roof Style'].value_counts()
+
+
+#The Mode for Discrete Variables
+
+print(houses['Bedroom AbvGr'].value_counts().sort_index())
+bedroom_variable = 'discrete' #specifies the type of the Variables
+bedroom_mode = houses['Bedroom AbvGr'].mode()
+
+print(houses['SalePrice'].value_counts().sort_index())
+price_variable = 'continuous'
