@@ -702,3 +702,20 @@ distribution_3 = {'mode': 202, 'mean': 143, 'median': 199}
 shape_1 = 'right skew'
 shape_2 = 'right skew'
 shape_3 = 'left skew'
+
+
+#Symmetrical Distributions
+'''
+The median divides the distribution in two equal halves. As a consequence, the median will always be at the center of a perfectly symmetrical distribution because only a line drawn at the center can divide the distribution in two equal halves.
+ The mean is not pulled neither to the left, nor to the right, and stays instead in the center, at the same location as the median. The mean and the median are always equal for any perfectly symmetrical distribution.
+It's possible to have a symmetrical distribution with more than one peak, which means that the mode won't be at the center
+A uniform distribution doesn't have any peaks, which means it doesn't have any mode:
+
+
+'''
+houses['Mo Sold'].plot.kde(xlim = [1, 12])
+plt.axvline(houses['Mo Sold'].mode()[0], color='green', label='Mode')
+plt.axvline(houses['Mo Sold'].median(), color='orange', label='Median')
+plt.axvline(houses['Mo Sold'].mean(), color='black', label='Mean')
+plt.legend()
+plt.show()
