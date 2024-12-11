@@ -779,3 +779,19 @@ def mad_fn(x):
     return sum(em_lis)/len(em_lis)
 mad = mad_fn(C)
 print(mad)
+
+#Variance
+#Another way to solve this problem is to square each distance and then find the mean of all the squared distances
+#This measure of variability is sometimes called mean squared distance or mean squared deviation 
+#However, it's more commonly known as variance
+C = [1, 1, 1, 1, 1, 1, 1, 1, 1, 21]
+
+#function that takes in a numerical array and returns the variance of that array
+def var_dis(x):
+    mn_arr = sum(x)//len(x)
+    em_lis = []
+    for i in x:
+        em_lis.append((i - mn_arr)**2)
+    return sum(em_lis)/len(em_lis)
+variance_C = var_dis(C)
+print(variance_C)
