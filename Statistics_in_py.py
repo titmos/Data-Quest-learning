@@ -771,11 +771,11 @@ print(avg_distance)
 C = [1, 1, 1, 1, 1, 1, 1, 1, 1, 21]
 
 #function that takes in a numerical array and returns the  mean absolute deviation
-def avg_dis(x):
+def mad_fn(x):
     mn_arr = sum(x)//len(x)
     em_lis = []
     for i in x:
         em_lis.append(abs(i - mn_arr))
     return sum(em_lis)/len(em_lis)
-mad = avg_dis(C)
+mad = mad_fn(C)
 print(mad)
