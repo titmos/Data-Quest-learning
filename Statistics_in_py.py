@@ -753,10 +753,8 @@ Then, we measure the distance between each value in the distribution and the mea
 We first need to sum up all the distances.
 Then we need to divide the total by the number of distances.
 '''
-import numpy as np
+
 C = [1, 1, 1, 1, 1, 1, 1, 1, 1, 21]
-f2 = sum(C) / len(C)
-f = np.mean(C)
 #function that takes in a numerical array and returns the average distance
 def avg_dis(x):
     mn_arr = sum(x)//len(x)
