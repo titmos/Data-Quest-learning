@@ -741,3 +741,28 @@ one = False
 two = True
     
 
+#The Average Distance
+#problem range has is it considers only the two extreme values, and this makes it extremely sensitive to outliers
+'''
+To take into account each value when measuring variability we could:
+
+#Take a reference value, and measure the distance of each value in the distribution from that reference value.
+We can take the mean of the distribution as a reference value.
+Then, we measure the distance between each value in the distribution and the mean.
+#Find the mean of the distances.
+We first need to sum up all the distances.
+Then we need to divide the total by the number of distances.
+'''
+import numpy as np
+C = [1, 1, 1, 1, 1, 1, 1, 1, 1, 21]
+f2 = sum(C) / len(C)
+f = np.mean(C)
+#function that takes in a numerical array and returns the average distance
+def avg_dis(x):
+    mn_arr = sum(x)//len(x)
+    em_lis = []
+    for i in x:
+        em_lis.append(i - mn_arr)
+    return sum(em_lis)/len(em_lis)
+avg_distance = avg_dis(C)
+print(avg_distance)
