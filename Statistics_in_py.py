@@ -764,3 +764,18 @@ def avg_dis(x):
     return sum(em_lis)/len(em_lis)
 avg_distance = avg_dis(C)
 print(avg_distance)
+
+#Mean Absolute Deviation
+#We'll update the formula used previously to reflect the fact the we're summing up the absolute distances 
+''' We call this measure of variability mean absolute distance. In statistical jargon, however, the distance of a value from the mean is called deviation. So the mean absolute distance is more commonly known as mean absolute deviation or average absolute deviation.'''
+C = [1, 1, 1, 1, 1, 1, 1, 1, 1, 21]
+
+#function that takes in a numerical array and returns the  mean absolute deviation
+def avg_dis(x):
+    mn_arr = sum(x)//len(x)
+    em_lis = []
+    for i in x:
+        em_lis.append(abs(i - mn_arr))
+    return sum(em_lis)/len(em_lis)
+mad = avg_dis(C)
+print(mad)
