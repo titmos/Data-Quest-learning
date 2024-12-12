@@ -795,3 +795,17 @@ def var_dis(x):
     return sum(em_lis)/len(em_lis)
 variance_C = var_dis(C)
 print(variance_C)
+
+#Standard Deviation
+from math import sqrt
+C = [1, 1, 1, 1, 1, 1, 1, 1, 1, 21]
+#The square root of variance is called standard deviation 
+#function that takes in a numerical array and returns the standard deviation of that array
+def std_dev(x):
+    mn_arr = sum(x)//len(x)
+    em_lis = []
+    for i in x:
+        em_lis.append((i - mn_arr)**2)
+    return sqrt(sum(em_lis)/len(em_lis))
+standard_deviation_C = std_dev(C)
+print(standard_deviation_C)
