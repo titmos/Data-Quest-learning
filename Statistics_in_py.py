@@ -809,3 +809,17 @@ def std_dev(x):
     return sqrt(sum(em_lis)/len(em_lis))
 standard_deviation_C = std_dev(C)
 print(standard_deviation_C)
+
+
+# Average Variability Around the Mean
+# we'll try to visualize this variability around the mean by:
+#Generating a histogram for the distribution of the SalePrice variable.
+#Using vertical lines to mark the mean and the average deviations above and below the mean.
+mean = houses['SalePrice'].mean()
+st_dev = standard_deviation(houses['SalePrice'])
+houses['SalePrice'].plot.hist()
+plt.axvline(mean, color='Black', label='Mean')
+plt.axvline(mean - st_dev, color='Red', label='Below')
+plt.axvline(mean + st_dev, color='Violet', label='Above')
+plt.legend()
+plt.show()
