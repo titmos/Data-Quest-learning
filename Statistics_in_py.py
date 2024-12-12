@@ -823,3 +823,29 @@ plt.axvline(mean - st_dev, color='Red', label='Below')
 plt.axvline(mean + st_dev, color='Violet', label='Above')
 plt.legend()
 plt.show()
+
+
+# Average Variability Around the Mean
+
+def standard_deviation(array):
+    reference_point = sum(array) / len(array)
+    
+    distances = []
+    for value in array:
+        squared_distance = (value - reference_point)**2
+        distances.append(squared_distance)
+    variance = sum(distances) / len(distances)
+    return sqrt(variance)
+
+#print(houses['Yr Sold'].unique())
+dict = {}
+for year in houses['Yr Sold'].unique():
+    year_segment = houses['SalePrice'][houses['Yr Sold']==year]
+    st_dev = standard_deviation(year_segment)
+    dict[year] = st_dev
+    
+    #print(year, ': ', st_dev )
+greatest_variability = max(dict, key= lambda x: dict[x]) #or try  max(years, key=years.get)
+lowest_variability = min(dict, key= lambda x: dict[x]) #or try  min(years, key=years.get)
+print(dict)
+#print(houses['SalePrice'][houses['Yr Sold']==2009])
