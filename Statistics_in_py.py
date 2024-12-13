@@ -893,3 +893,33 @@ for x in range (0, 5001): #consider the data we have for SalePrice a population 
 plt.hist(sam_dv)#Histogram to visualize the distribution of the 5000 sample standard deviations
 plt.axvline(standard_deviation(houses['SalePrice']))
 plt.show()
+#Notice that most sample standard deviations are clustered below the population standard deviation:
+#This suggests that the sample standard deviation usually underestimates the population standard deviation. 
+
+#Bessel's correction.
+#This small correction we added to the sample standard deviation (dividing by n − 1 instead of n)
+from math import sqrt
+import matplotlib.pyplot as plt
+
+def standard_deviation(array):
+    reference_point = sum(array) / len(array)
+    
+    distances = []
+    for value in array:
+        squared_distance = (value - reference_point)**2
+        distances.append(squared_distance)
+    
+    variance = sum(distances) / (len(distances) - 1)
+    
+    return sqrt(variance)
+
+st_devs = []
+
+for i in range(5000):
+    sample = houses['SalePrice'].sample(10, random_state=i)
+    st_dev = standard_deviation(sample)
+    st_devs.append(st_dev)
+
+plt.hist(st_devs)
+plt.axvline(pop_stdev)
+plt.show()
