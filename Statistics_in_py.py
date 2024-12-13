@@ -871,3 +871,25 @@ bigger_spread = 'sample 2'
 st_dev1 = standard_deviation(sample1)
 st_dev2 = standard_deviation(sample2)
 
+
+#The Sample Standard Deviation
+def standard_deviation(array):
+    reference_point = sum(array) / len(array)
+    
+    distances = []
+    for value in array:
+        squared_distance = (value - reference_point)**2
+        distances.append(squared_distance)
+    
+    variance = sum(distances) / len(distances)
+    
+    return sqrt(variance)
+
+sam_dv = []
+for x in range (0, 5001): #consider the data we have for SalePrice a population and sample it 5000 times
+    sample = houses['SalePrice'].sample(10, random_state = x)
+    sam_dv.append(standard_deviation(sample)) #find stn dev of each sample
+
+plt.hist(sam_dv)#Histogram to visualize the distribution of the 5000 sample standard deviations
+plt.axvline(standard_deviation(houses['SalePrice']))
+plt.show()
