@@ -937,3 +937,20 @@ numpy_var = var(sample['SalePrice'], ddof=1)
 equal_vars = pandas_var == numpy_var
 #we stated that statisticians agree that n−1 is better than n or n−2 for computing the sample standard deviation 
 # a statistic is  an unbiased estimator when that statistic is equal on average to the parameter it estimate
+
+#Sample Variance — Unbiased Estimator
+from numpy import std, var
+population = [0, 3, 6]
+samples = [[0, 3], [0, 6],
+           [3, 0], [3, 6],
+           [6, 0], [6, 3]
+          ]
+li_std = []
+li_var = []
+for x in samples:
+    li_std.append(std(x, ddof = 1))
+    li_var.append(var(x, ddof = 1))
+mean_var = sum(li_var)/len(li_var)
+equal_var = mean_var == var(population)#If the sample variance is biased in this case, the result should be False
+mean_std = sum(li_std)/len(li_std)
+equal_stdev = mean_std == std(population) #If the sample variance is biased in this case, the result should be False
