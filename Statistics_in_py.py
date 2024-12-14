@@ -954,3 +954,21 @@ mean_var = sum(li_var)/len(li_var)
 equal_var = mean_var == var(population)#If the sample variance is biased in this case, the result should be False
 mean_std = sum(li_std)/len(li_std)
 equal_stdev = mean_std == std(population) #If the sample variance is biased in this case, the result should be False
+
+
+
+#Z-scores
+#Individual Values
+
+import pandas as pd
+houses = pd.read_table('AmesHousing_1.txt')
+
+#Generate a kernel density plot for the SalePrice variable to find out how far off $220,000 is from the mean.
+houses['SalePrice'].plot.kde()
+plt.xlim(houses['SalePrice'].min(), houses['SalePrice'].max())
+plt.axvline(houses['SalePrice'].mean(), label = 'Mean', color = 'Black')
+plt.axvline(houses['SalePrice'].std() + houses['SalePrice'].mean(), label = 'Standard deviation', color = 'Red')
+plt.axvline(220000, label = '220000', color = 'Orange')
+plt.legend()
+plt.show()
+very_expensive = False
