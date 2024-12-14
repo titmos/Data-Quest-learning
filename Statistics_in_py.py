@@ -935,3 +935,4 @@ equal_stdevs = pandas_stdev == numpy_stdev
 pandas_var = sample['SalePrice'].var(ddof=1) 
 numpy_var = var(sample['SalePrice'], ddof=1) 
 equal_vars = pandas_var == numpy_var
+#we stated that statisticians agree that n−1 is better than n or n−2 for computing the sample standard deviation 
