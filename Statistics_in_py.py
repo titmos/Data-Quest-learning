@@ -936,3 +936,4 @@ pandas_var = sample['SalePrice'].var(ddof=1)
 numpy_var = var(sample['SalePrice'], ddof=1) 
 equal_vars = pandas_var == numpy_var
 #we stated that statisticians agree that n−1 is better than n or n−2 for computing the sample standard deviation 
+# a statistic is  an unbiased estimator when that statistic is equal on average to the parameter it estimate
