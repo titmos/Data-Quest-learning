@@ -923,3 +923,15 @@ for i in range(5000):
 plt.hist(st_devs)
 plt.axvline(pop_stdev)
 plt.show()
+
+#Standard Notation
+sample = houses.sample(100, random_state=1)
+from numpy import std, var
+
+pandas_stdev = sample['SalePrice'].std(ddof = 1) #ddof parameter is the degree of freedom used in finding more accurate sample std or var 
+numpy_stdev = std(sample['SalePrice'], ddof = 1)
+equal_stdevs = pandas_stdev == numpy_stdev
+
+pandas_var = sample['SalePrice'].var(ddof=1) 
+numpy_var = var(sample['SalePrice'], ddof=1) 
+equal_vars = pandas_var == numpy_var
