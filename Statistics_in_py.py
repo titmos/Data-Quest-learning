@@ -1061,3 +1061,4 @@ houses['z_lot_area'] = houses['Lot Area'].apply(
     )
 z_mean_area = houses['z_lot_area'].mean()
 z_stdev_area = houses['z_lot_area'].std(ddof=0)
+#for every distribution of z-scores, the mean is always 0 and the standard deviation is always 1. We got slightly different values in the previous exercise because of small rounding errors. 
