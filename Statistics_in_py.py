@@ -1062,3 +1062,20 @@ houses['z_lot_area'] = houses['Lot Area'].apply(
 z_mean_area = houses['z_lot_area'].mean()
 z_stdev_area = houses['z_lot_area'].std(ddof=0)
 #for every distribution of z-scores, the mean is always 0 and the standard deviation is always 1. We got slightly different values in the previous exercise because of small rounding errors. 
+
+
+#The Standard Distribution
+#for every distribution of z-scores, the mean is always 0 and the standard deviation is always 1.
+import numpy as np
+
+population = [0, 8, 0, 8]
+
+mean_pop = np.mean(population)
+stdev_pop = np.std(population, ddof = 0)
+
+standardized_pop = []
+for value in population:
+    z = (value - mean_pop) / stdev_pop
+    standardized_pop.append(z)
+mean_z = np.mean(standardized_pop)
+stdev_z = np.std(standardized_pop, ddof = 0)
