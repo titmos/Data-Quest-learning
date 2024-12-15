@@ -1094,3 +1094,24 @@ for value in sample:
     standardized_sample.append(z)
 mean_st_sample = np.mean(standardized_sample)# mean of standardized_sample is 0
 stdev_sample = np.std(standardized_sample, ddof = 1) #When we standardize a sample, the resulting distribution of z-scores is itself a sample. 
+
+
+#Using Standardization for Comparisons
+#Standardizing distributions can prove very useful when we need to compare values coming from different systems of measurement. 
+'''
+One thing the two systems have in common is that the index is directly proportional with the house quality — a lower index means lower quality, and a higher index means higher quality. To compare these indices coming from different measurement systems, we can:
+
+Standardize each distribution of index values (transform each index to a z-score).
+Then compare the z-scores.
+
+Average houses will have z-scores around 0 in both distributions, good-quality houses will have z-scores significantly greater than 0, and low-quality houses will have z-scores significantly lower than 0
+'''
+mean_1 = houses['index_1'].mean()
+st_dev_1 = houses['index_1'].std(ddof=0)
+houses['z_1'] = houses['index_1'].apply(lambda x: ((x - mean_1) / st_dev_1))
+mean_2 = houses['index_2'].mean()
+st_dev_2 = houses['index_2'].std(ddof=0)
+houses['z_2'] = houses['index_2'].apply(lambda x: ((x - mean_2) / st_dev_2))
+print(houses[['z_1', 'z_2']].head(2))
+
+better = 'first'
