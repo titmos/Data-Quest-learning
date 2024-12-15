@@ -1127,3 +1127,8 @@ houses['distribution'] = houses['z_merged'].apply(lambda z: (z * st_dev + mean))
 
 mean_transformed = houses['distribution'].mean()
 stdev_transformed = houses['distribution'].std(ddof = 0)
+'''
+We found that z-scores are useful for comparing values coming from different distributions with different means and standard deviations.
+
+We also learned to standardize distributions and discussed a few situations where that might be useful. It's worth mentioning that standardization is also useful for some machine learning algorithms that we'll learn about in later courses. Also, z-scores in general are key elements in understanding confidence intervals and hypothesis testing, which we'll discuss in later courses.
+'''
