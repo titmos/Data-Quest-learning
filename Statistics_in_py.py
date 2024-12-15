@@ -972,3 +972,18 @@ plt.axvline(220000, label = '220000', color = 'Orange')
 plt.legend()
 plt.show()
 very_expensive = False
+
+#Z-scores
+min_val = houses['SalePrice'].min()
+mean_val = houses['SalePrice'].mean()
+max_val = houses['SalePrice'].max() 
+
+from numpy import std, var, mean
+def fn(value, x): #function that takes in a value, the array then returns the z-score 
+    mn = mean(x)
+    st_dev = std(x)
+    return (value - mn )/st_dev
+
+min_z = fn(min_val, houses['SalePrice'])
+mean_z = fn(mean_val, houses['SalePrice'])
+max_z = fn(max_val, houses['SalePrice'])
