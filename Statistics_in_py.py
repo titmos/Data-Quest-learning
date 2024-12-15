@@ -1120,3 +1120,10 @@ better = 'first'
 #Z-scores may not be always straightforward to work with or communicate to non-technical audiences, but fortunately we can convert them to other values that are more intuitive
 #For any standardized distribution we can also convert the z-scores back to the original values. All we have to do is use the initial values for mean and std dev
 # However, it's more common in practice to transform the standardized distribution with convenient values for them
+
+mean = 50
+st_dev = 10
+houses['distribution'] = houses['z_merged'].apply(lambda z: (z * st_dev + mean))
+
+mean_transformed = houses['distribution'].mean()
+stdev_transformed = houses['distribution'].std(ddof = 0)
