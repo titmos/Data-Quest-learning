@@ -987,3 +987,38 @@ def fn(value, x): #function that takes in a value, the array then returns the z-
 min_z = fn(min_val, houses['SalePrice'])
 mean_z = fn(mean_val, houses['SalePrice'])
 max_z = fn(max_val, houses['SalePrice'])
+
+
+# Locating Values in Different Distributions
+#We're asked by our real estate specialists to analyze historical data on five neighborhoods:
+''' Our goal is to find out for which of these neighborhoods a $200,000 house is average-priced. We can solve this task quickly by measuring the z-score for a $200,000 value for each of the five distributions — each of the five neighborhoods has its own distribution of sale prices with its own mean and standard deviation.
+so our recommendation should be the neighborhood with the z-score closest to 0
+'''
+def z_score(value, array, bessel=0):
+    mean = np.mean(array)
+    st_dev = np.std(array, ddof=bessel)
+    distance = value - mean
+    z = distance / st_dev
+    return z
+
+
+#segments by location 
+names = houses[houses['Neighborhood'] == 'NAmes']
+collgcr = houses[houses['Neighborhood'] == 'CollgCr']
+oldtown = houses[houses['Neighborhood'] == 'OldTown']
+edwards = houses[houses['Neighborhood'] == 'Edwards']
+somerst = houses[houses['Neighborhood'] == 'Somerst']
+
+#Clever method by dataquest
+# Find the z-score for 200000 for every location
+z_by_location = {}
+for data, neighborhood in [(names, 'NAmes'), (collgcr, 'CollgCr'),
+                     (oldtown, 'OldTown'), (edwards, 'Edwards'),
+                     (somerst, 'Somerst')]:
+    
+    z_by_location[neighborhood] = z_score(200000, data['SalePrice'],
+                                          bessel=0)
+
+# Find the location with the z-score closest to 0
+print(z_by_location)
+best_investment = 'College Creek'
