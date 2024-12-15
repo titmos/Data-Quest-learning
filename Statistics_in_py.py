@@ -1022,3 +1022,42 @@ for data, neighborhood in [(names, 'NAmes'), (collgcr, 'CollgCr'),
 # Find the location with the z-score closest to 0
 print(z_by_location)
 best_investment = 'College Creek'
+
+
+# Transforming Distributions
+#Z-scores are often used to transform entire distributions by converting all the values to z-scores
+
+mean = houses['SalePrice'].mean()
+st_dev = houses['SalePrice'].std(ddof=0)
+#Convert each value to a z-score
+houses['z_prices'] = houses['SalePrice'].apply(
+    lambda x: ((x - mean) / st_dev)
+    )
+#Plot side by side the kernel density plot for the original values and the kernel density plot for the z-scores.
+plt.figure(figsize=(11, 3.5))
+plt.subplot(1, 2, 1)
+houses['z_prices'].plot.kde(xlim=(houses['z_prices'].min(),
+                                houses['z_prices'].max()
+                                )
+                        )
+plt.subplot(1, 2, 2)
+houses['SalePrice'].plot.kde(xlim=(houses['SalePrice'].min(),
+                                    houses['SalePrice'].max()
+                                    )
+                            )
+plt.tight_layout() # otherwise the plots will overlay partially
+plt.show()
+
+#Notice that the shape of the initial distribution is preserved perfectly in the new distribution of z-scores.
+
+z_mean_price = houses['z_prices'].mean()
+z_stdev_price = houses['z_prices'].std(ddof = 0)
+
+#Transform the distribution of the Lot Area variable into a distribution of z-scores.
+mean_la = houses['Lot Area'].mean()
+st_dev_la = houses['Lot Area'].std(ddof=0)
+houses['z_lot_area'] = houses['Lot Area'].apply(
+    lambda x: ((x - mean_la) / st_dev_la)
+    )
+z_mean_area = houses['z_lot_area'].mean()
+z_stdev_area = houses['z_lot_area'].std(ddof=0)
