@@ -1079,3 +1079,18 @@ for value in population:
     standardized_pop.append(z)
 mean_z = np.mean(standardized_pop)
 stdev_z = np.std(standardized_pop, ddof = 0)
+
+
+#Standardizing Samples
+import numpy as np
+sample = [0, 8, 0, 8]
+
+x_bar = np.mean(sample)
+s = np.std(sample, ddof=1)
+
+standardized_sample = []
+for value in sample:
+    z = (value - x_bar) / s
+    standardized_sample.append(z)
+mean_st_sample = np.mean(standardized_sample)# mean of standardized_sample is 0
+stdev_sample = np.std(standardized_sample, ddof = 1) #When we standardize a sample, the resulting distribution of z-scores is itself a sample. 
