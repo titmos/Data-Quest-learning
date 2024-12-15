@@ -1115,3 +1115,8 @@ houses['z_2'] = houses['index_2'].apply(lambda x: ((x - mean_2) / st_dev_2))
 print(houses[['z_1', 'z_2']].head(2))
 
 better = 'first'
+
+#Converting Back from Z-scores
+#Z-scores may not be always straightforward to work with or communicate to non-technical audiences, but fortunately we can convert them to other values that are more intuitive
+#For any standardized distribution we can also convert the z-scores back to the original values. All we have to do is use the initial values for mean and std dev
+# However, it's more common in practice to transform the standardized distribution with convenient values for them
