@@ -24,3 +24,9 @@ for n in range(1, 10001):
     probabilities.append(current_probability)
 print(probabilities[:10])
 print(probabilities[-10:])
+
+
+#Probability Rules
+#Sample Space
+
+coin_toss_omega = ['HH', 'HT', 'TH', 'TT' ] #sample space of tossing a normal coin two times. 
