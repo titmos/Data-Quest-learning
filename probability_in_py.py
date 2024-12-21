@@ -30,3 +30,14 @@ print(probabilities[-10:])
 #Sample Space
 
 coin_toss_omega = ['HH', 'HT', 'TH', 'TT' ] #sample space of tossing a normal coin two times. 
+
+
+#Permutations without replacement
+def factorial(n): # function factorial
+    product = 1
+    for x in range(1, n + 1):
+        product *= x
+    return product
+#test
+permutations_1 = factorial(6)
+permutations_2 = factorial(52)
