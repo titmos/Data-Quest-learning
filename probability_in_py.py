@@ -41,3 +41,17 @@ def factorial(n): # function factorial
 #test
 permutations_1 = factorial(6)
 permutations_2 = factorial(52)
+
+
+#More About Permutations
+#Note that we can't use the Permutations = n! formula to calculate the number of permutations for a 5-card poker hand because in our case n = 52, and that'd lead us to a wrong result:
+#we have a group of n objects, but we're taking only k objects
+
+def factorial(n, k): # function factorial with k selection
+    product = 1
+    for x in range(n, n - k, -1):
+        product *= x
+    return product
+perm_3_52 = factorial(52, 3)
+perm_4_20 = factorial(20, 4)
+perm_4_27 = factorial(27, 4)
