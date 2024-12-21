@@ -46,7 +46,7 @@ permutations_2 = factorial(52)
 #More About Permutations
 #Note that we can't use the Permutations = n! formula to calculate the number of permutations for a 5-card poker hand because in our case n = 52, and that'd lead us to a wrong result:
 #we have a group of n objects, but we're taking only k objects
-
+# formula below to calculate permutations when we're sampling without replacement and taking only k objects from a group of n objects:
 def factorial(n, k): # function factorial with k selection
     product = 1
     for x in range(n, n - k, -1):
