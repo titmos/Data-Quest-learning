@@ -84,3 +84,18 @@ c = permutation(52, 5)/factorial(5)
 p_aces_7 = 1/c
 c_lottery = permutation(49, 6)/factorial(6)
 p_big_prize = 1/c_lottery
+
+
+#combination
+def factorial(n):
+    final_product = 1
+    for i in range(n, 0, -1):
+        final_product *= i
+    return final_product
+def combinations(n, k):#outputs the number of combinations when we're taking only k objects from a group of n object
+    numerator = factorial(n)
+    denominator = factorial(k) * factorial(n - k)
+    return numerator / denominator
+c_18 = combinations(34, 18)
+p_Y = 1/c_18
+p_non_Y = 1 - p_Y
