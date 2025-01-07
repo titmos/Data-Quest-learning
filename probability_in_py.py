@@ -99,3 +99,16 @@ def combinations(n, k):#outputs the number of combinations when we're taking onl
 c_18 = combinations(34, 18)
 p_Y = 1/c_18
 p_non_Y = 1 - p_Y
+
+
+
+#Conditional Probability: Intermediate
+#The Multiplication Rule
+
+p_ram = 0.0822
+p_gl = 0.0184
+p_ram_given_gl = 0.0022
+p_gl_and_ram = p_gl * p_ram_given_gl
+p_non_ram_given_gl = 1 - p_ram_given_gl
+p_gl_and_non_ram = p_gl * p_non_ram_given_gl
+p_gl_or_ram = p_gl + p_ram - p_gl_and_ram
